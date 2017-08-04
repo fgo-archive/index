@@ -1,0 +1,98 @@
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html;charset=utf-8">
+	<title>羁绊礼装表</title>
+	
+	<style type="text/css">
+	body {
+		background-color:#fff0cd;
+	}
+		
+	a { 
+		text-decoration:none;
+		color:#000;
+	}
+	
+	table.frametable {
+		margin-top:15px;
+		border-collapse:collapse;
+		border:1px solid #aaa;
+		}
+
+	table.frametable th {
+		vertical-align:text-center;
+		padding:5px 15px 5px 6px;
+		background-color:#f5e8cb;
+		border:1px solid #aaa;
+		text-align:center;
+		color:#333333;
+		}
+
+	table.frametable td {
+		vertical-align:text-center;
+		padding:6px 15px 6px 6px;
+		border:1px solid #aaa;
+		text-align:center;
+		}
+		
+	.odd{
+		background-color:#fff8e7;
+	}
+	</style>
+	<script type="text/javascript" src="js/jquery-1.8.2.min.js"></script>
+	<script type="text/javascript">  
+	$(function(){  
+		$.getJSON("data/craft.json",function(data){  
+			var line = 1
+			$.each(data,function(infoIndex,info){
+				var sty=""
+				if((line % 2) == 1){
+					sty=' class="odd"';
+				}
+				var clink = 'href="http://fgowiki.com/guide/equipdetail/' + info["id"] + '"';
+				var slink = 'href="http://fgowiki.com/guide/petdetail/' + info["serventId"] + '"';
+				var tr = $('<tr' + sty + '></tr>');
+				var tds = '<td><a ' + clink + ' target="_blank">' + info["id"] + '</a></td>';
+				tds += '<td><a ' + clink + ' target="_blank">' + info["name"] + '</a></td>';
+				tds += '<td><a ' + slink + ' target="_blank">' + info["servent"] + '</a></td>';
+				tds += '<td>' + info["friendship"]["0-5"] + '</td>';
+				tds += '<td>' + info["friendship"]["5-6"] + '</td>';
+				tds += '<td>' + info["friendship"]["6-7"] + '</td>';
+				tds += '<td>' + info["friendship"]["7-8"] + '</td>';
+				tds += '<td>' + info["friendship"]["8-9"] + '</td>';
+				tds += '<td>' + info["friendship"]["9-10"] + '</td>';
+				tds += '<td>' + info["friendship"]["total"] + '</td>';
+				tds += '<td style="text-align:left">' + info["desc"] + '</td>';
+				tr.append(tds);
+				$("#cftable").append(tr);
+				line+=1;
+			})
+		})  
+	})  
+	</script>  
+</head>
+<body>
+	<table class="frametable" id="cftable">
+		<tr>
+			<th rowspan="2">ID</th>
+			<th rowspan="2">名称</th>
+			<th rowspan="2">隶属从者</th>
+			<th colspan="7">羁绊点数(万)</th>
+			<th rowspan="2">说明</th>
+		</tr>
+		<tr>
+			<th>0-5</th>
+			<th>5-6</th>
+			<th>6-7</th>
+			<th>7-8</th>
+			<th>8-9</th>
+			<th>9-10</th>
+			<th>总计</th>
+		</tr>
+	</table>
+	<p style="text-align:right; font-size:10px;"><a href="http://bbs.nga.cn/read.php?tid=11177929">数据来源：地球联邦4@NGA</a></p>
+	<p style="text-align:right; font-size:10px;"><a href="http://bbs.nga.cn/read.php?tid=11961759">校对：进击的黄瓜2@NGA</a></p>
+</body>
+</html>
+
+
