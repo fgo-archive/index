@@ -42,6 +42,7 @@
 	</style>
 	<script type="text/javascript" src="js/jquery-1.8.2.min.js"></script>
 	<script type="text/javascript">  
+	var $ = jQuery.noConflict();
 	$(function(){  
 		$.getJSON("data/fcraft.json",function(data){
 			var line = 1
@@ -54,10 +55,10 @@
 				var slink = 'href="http://fgowiki.com/guide/petdetail/' + info["serventId"] + '"';
 				var tr = $('<tr' + sty + '></tr>');
 				var tds = '<td><a ' + clink + ' target="_blank">' + info["id"] + '</a></td>';
-				tds += '<td><a ' + clink + ' target="_blank"><img src="http://fgowiki.com/fgo/equip/' + info["id"] + '.jpg" style="width:60;height:auto"></a></td>';
+				tds += '<td><a ' + clink + ' target="_blank"><img src="http://fgowiki.com/fgo/equip/' + info["id"] + '.jpg" style="width:60px ;height:auto"></a></td>';
 				tds += '<td><a ' + clink + ' target="_blank">' + info["name"] + '</a></td>';
 				tds += '<td><a ' + slink + ' target="_blank">' + info["servent"] + '</a></td>';
-				tds += '<td><a ' + slink + ' target="_blank"><img src="http://file.fgowiki.fgowiki.com/fgo/head/' + (Array(3).join('0') + info["serventId"]).slice(-3) + '.jpg" style="width:60;height:auto"></a></td>';
+				tds += '<td><a ' + slink + ' target="_blank"><img src="http://file.fgowiki.fgowiki.com/fgo/head/' + (Array(3).join('0') + info["serventId"]).slice(-3) + '.jpg" style="width:60px ;height:auto"></a></td>';
 				tds += '<td>' + info["friendship"]["0-5"] + '</td>';
 				tds += '<td>' + info["friendship"]["5-6"] + '</td>';
 				tds += '<td>' + info["friendship"]["6-7"] + '</td>';
@@ -95,8 +96,8 @@
 			<th>总计</th>
 		</tr>
 	</table>
-	<p style="text-align:right; font-size:10px;"><a href="http://bbs.nga.cn/read.php?tid=11177929">数据来源：地球联邦4@NGA</a></p>
-	<p style="text-align:right; font-size:10px;"><a href="http://bbs.nga.cn/read.php?tid=11961759">校对：进击的黄瓜2@NGA</a></p>
+	<p style="text-align:right; font-size:12px;"><a href="http://bbs.nga.cn/read.php?tid=11177929">数据来源：地球联邦4@NGA</a></p>
+	<p style="text-align:right; font-size:12px;"><a href="http://bbs.nga.cn/read.php?tid=11961759">校对：进击的黄瓜2@NGA</a></p>
 </body>
 </html>
 
