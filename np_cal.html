@@ -182,7 +182,7 @@
 	function resetList(){
 		$("#servants").empty();
 		for(var i in servants){
-			var lst='<option value="'+servants[i].seq+'">'+servants[i].id+servants[i].class+":"+servants[i].name+'</option>';
+			var lst='<option value="'+servants[info["seq"]].seq+'">'+'【'+servants[info["seq"]].class+"】 "+servants[info["seq"]].name+'</option>';
 			$("#servants").append(lst);
 		}
 		$("#servants").val(1); 
@@ -229,7 +229,7 @@
 					flag=false;
 					sid=i;
 				}
-				lst+='<option value="'+servants[i].seq+'">'+servants[i].id+servants[i].class+":"+servants[i].name+'</option>';
+				lst+='<option value="'+servants[info["seq"]].seq+'">'+'【'+servants[info["seq"]].class+"】 "+servants[info["seq"]].name+'</option>';
 			}
 		}
 		if(!flag){
