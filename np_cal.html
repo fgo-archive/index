@@ -1,0 +1,407 @@
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html;charset=utf-8">
+	<title>NP</title>
+	<link rel="stylesheet" href="css/trash.css" type="text/css" />
+</style> 
+</head>
+<body>
+	<table>
+		<tr>
+			<td>从者</td>
+			<td colspan="3">
+				<select id="servants"></select>
+			</td>
+			<td>查询</td>
+			<td colspan="3">
+				<input type="text" id="search_str">
+				<input type="button" id="search" onclick="searchName()" value="查询">
+				<input type="button" id="reset" onclick="resetList()" value="重置">
+			</td>
+		</tr>
+		
+		<tr>
+			<td>配卡</td>
+			<td colspan="7" id="cards"></td>
+		</tr>
+		
+		<tr>
+			<td>红卡hit数</td>
+			<td><input type="text" id="buster_hits" style="width:50px" disabled></td>
+			<td>蓝卡hit数</td>
+			<td><input type="text" id="arts_hits" style="width:50px" disabled></td>
+			<td>绿卡hit数</td>
+			<td><input type="text" id="quick_hits" style="width:50px" disabled></td>
+			<td>EX卡hit数</td>
+			<td><input type="text" id="ex_hits" style="width:50px" disabled></td>
+		</tr>
+		
+		<tr>
+			<td>红卡np率(%)</td>
+			<td><input type="text" id="buster_np" style="width:50px" disabled></td>
+			<td>蓝卡np率(%)</td>
+			<td><input type="text" id="arts_np" style="width:50px" disabled></td>
+			<td>绿卡np率(%)</td>
+			<td><input type="text" id="quick_np" style="width:50px" disabled></td>
+			<td>ex卡np率(%)</td>
+			<td><input type="text" id="ex_np" style="width:50px" disabled></td>
+		</tr>
+		
+		<tr>
+			<td>骑乘(%)</td>
+			<td><input type="text" id="ride" style="width:50px" disabled></td>
+			<td>阵地建造(%)</td>
+			<td><input type="text" id="craft_build" style="width:50px" disabled></td>
+			<td colspan="4"></td>
+		</tr>
+		
+		<tr>
+			<td>np获取提升(%)</td>
+			<td><input type="text" id="np_up" style="width:50px"></td>
+			<td>蓝魔放(%)</td>
+			<td><input type="text" id="arts_up" style="width:50px"></td>
+			<td>绿魔放(%)</td>
+			<td><input type="text" id="quick_up" style="width:50px"></td>
+			<td colspan="2"></td>
+		</tr>
+		
+		<tr>
+			<td colspan="8" id="link_to_wiki"></td>
+		</tr>
+		
+		<tr>
+			<td></td>
+			<td>首卡</td>
+			<td>次卡</td>
+			<td>尾卡</td>
+			<td>ex卡</td>
+			<td colspan="3" rowspan="5" id="cal_result"></td>
+		</tr>
+		
+		<tr>
+			<td>是否暴击</td>
+			<td><input type="checkbox" id="first_crit" style="width:50px"></td>
+			<td><input type="checkbox" id="second_crit" style="width:50px"></td>
+			<td><input type="checkbox" id="third_crit" style="width:50px"></td>
+			<td colspan="1"></td>
+		</tr>
+
+		<tr>
+			<td >是否鞭尸</td>
+			<td><input type="checkbox" id="first_ok" style="width:50px"></td>
+			<td><input type="checkbox" id="second_ok" style="width:50px"></td>
+			<td><input type="checkbox" id="third_ok" style="width:50px"></td>
+			<td><input type="checkbox" id="ex_ok" style="width:50px"></td>
+			
+		</tr>
+		
+		<tr>
+			<td>卡序</td>
+			<td>
+				<select id="first_card"  style="width:60px">
+					<option value="-1" >无</option>
+					<option value="0">Buster</option>
+					<option value="3">Arts</option>
+					<option value="1">Quick</option>
+				</select>
+			</td>
+			<td>
+				<select id="second_card" style="width:60px">
+					<option value="-1">无</option>
+					<option value="0">Buster</option>
+					<option value="4.5">Arts</option>
+					<option value="1.5">Quick</option>
+				</select>
+			</td>
+			<td>
+				<select id="third_card" style="width:60px">
+					<option value="-1">无</option>
+					<option value="0">Buster</option>
+					<option value="6">Arts</option>
+					<option value="2">Quick</option>
+				</select>
+			</td>
+			<td>
+				<select id="ex_card" style="width:60px">
+					<option value="-1">无</option>
+					<option value="1">EX</option>
+				</select>
+			</td>
+			
+		</tr>
+		
+		<tr>
+			<td>敌方补正</td>
+			<td>
+				<select id="enemy_class">
+					<option value="1">其他 : 1</option>
+					<option value="1.1">Rider : 1.1</option>
+					<option value="1.2">Caster : 1.2</option>
+					<option value="0.9">Assassin : 0.9</option>
+					<option value="0.8">Berserker : 0.8</option>
+				</select>
+			</td>
+			<td>
+				<select id="enemy_kind">
+					<option value="1">其他 : 1</option>
+					<option value="1.2">死灵类 : 1.2</option>
+				</select>
+			</td>
+			<td colspan="2"><input type="button" id="cal_np" onclick="calNP()" value="计算"></td>
+		</tr>
+		
+		<tr>
+			<td colspan="8">例外：1.死灵类中鐘を鳴らすもの和エレシュキガル的种类补正是1。<br/>2.クリスティーヌ以狂阶补正计算。</td>
+		</tr>
+	</table>
+</body>
+</html>
+
+<script type="text/javascript" src="js/jquery-1.8.2.min.js"></script>
+<script type="text/javascript">
+	var $ = jQuery.noConflict();
+	var servants = new Array();
+	//读取数据
+	$(function(){  
+		$.getJSON("data/servants.json",function(data){  
+			$.each(data,function(infoIndex,info){
+				servants[info["seq"]]=info;
+				var lst='<option value="'+servants[info["seq"]].seq+'">'+'【'+servants[info["seq"]].class+"】 "+servants[info["seq"]].name+'</option>';
+				$("#servants").append(lst);
+			})
+			$("#servants").val(1); 
+			updateStatus(1);
+		})
+	});
+	//选择下拉框事件
+	$("#servants").change(function(){
+		var seq=$("#servants").val();
+		updateStatus(seq);
+	});
+	//重置下拉框
+	function resetList(){
+		$("#servants").empty();
+		for(var i in servants){
+			var lst='<option value="'+servants[i].seq+'">'+servants[i].id+servants[i].class+":"+servants[i].name+'</option>';
+			$("#servants").append(lst);
+		}
+		$("#servants").val(1); 
+		updateStatus(1);
+	}
+	//更新表格数据
+	function updateStatus(seq){
+		$("#buster_hits").val(servants[seq].BusterHits);
+		$("#arts_hits").val(servants[seq].ArtsHits);
+		$("#quick_hits").val(servants[seq].QuickHits);
+		$("#ex_hits").val(servants[seq].EXHits);
+		$("#buster_np").val(servants[seq].BusterNp);
+		$("#arts_np").val(servants[seq].ArtsNp);
+		$("#quick_np").val(servants[seq].QuickNp);
+		$("#ex_np").val(servants[seq].EXNp);
+		$("#ride").val(servants[seq].QuickEff);
+		$("#craft_build").val(servants[seq].ArtsEff);
+		$("#cards").empty();
+		for(var i=0;i<servants[seq].BusterCards;i++){
+			var card='<img src="resources/Buster.png" style="width:50">';
+			$("#cards").append(card);
+		}
+		for(var i=0;i<servants[seq].ArtsCards;i++){
+			var card='<img src="resources/Arts.png" style="width:50">';
+			$("#cards").append(card);
+		}
+		for(var i=0;i<servants[seq].QuickCards;i++){
+			var card='<img src="resources/Quick.png" style="width:50">';
+			$("#cards").append(card);
+		}
+		$("#link_to_wiki").empty();
+		var links='<p><a href="http://fgowiki.com/guide/petdetail/'+servants[seq].id+'" target="_blank">点此前往wiki</a></p>';
+		$("#link_to_wiki").append(links);
+	}
+	//查询功能
+	function searchName(){
+		var str=$("#search_str").val();
+		var flag=true;
+		var sid=1;
+		var lst='';
+		for(var i in servants){
+			if(servants[i].name.match(str)){
+				if(flag){
+					flag=false;
+					sid=i;
+				}
+				lst+='<option value="'+servants[i].seq+'">'+servants[i].id+servants[i].class+":"+servants[i].name+'</option>';
+			}
+		}
+		if(!flag){
+			$("#servants").empty();
+			$("#servants").append(lst);
+			$("#servants").val(sid); 
+			updateStatus(sid);
+		}
+		else{
+			alert('未找到结果！');
+		}
+	}
+	//overkill选择框事件
+	$("#first_ok").click(function(){
+		if ($(this).prop("checked")){
+			$("#second_ok").attr("checked",true);
+			$("#third_ok").attr("checked",true);
+			$("#ex_ok").attr("checked",true);
+		}
+	});
+	$("#second_ok").click(function(){
+		if ($(this).prop("checked")){
+			$("#third_ok").attr("checked",true);
+			$("#ex_ok").attr("checked",true);
+		}
+		else{
+			$("#first_ok").attr("checked",false);
+		}
+	});
+	$("#third_ok").click(function(){
+		if ($(this).prop("checked")){
+			$("#ex_ok").attr("checked",true);
+		}
+		else{
+			$("#first_ok").attr("checked",false);
+			$("#second_ok").attr("checked",false);
+		}
+	});
+	$("#ex_ok").click(function(){
+		if (!($(this).prop("checked"))){
+			$("#first_ok").attr("checked",false);
+			$("#second_ok").attr("checked",false);
+			$("#third_ok").attr("checked",false);
+		}
+	});
+	//
+	function toFloat(str){
+		var result=0;
+		result=parseFloat(str);
+		if(!result){
+			result=0;
+		}
+		return result;
+	}
+	//计算
+	function calNP(){
+		var firstNP=singleCardNP($("#first_card"),1);
+		var secondNP=singleCardNP($("#second_card"),2);
+		var thirdNP=singleCardNP($("#third_card"),3);
+		var exNP=singleCardNP($("#ex_card"),4);
+		var totalNP=firstNP+secondNP+thirdNP+exNP;
+		var result="<p>首卡："+Math.round(firstNP*100)/100+"<br/>"
+		result+="次卡："+Math.round(secondNP*100)/100+"<br/>"
+		result+="尾卡："+Math.round(thirdNP*100)/100+"<br/>"
+		result+="EX："+Math.round(exNP*100)/100+"<br/>"
+		if(toFloat($("#first_card").val())>2.1 && toFloat($("#second_card").val())>2.1 && toFloat($("#third_card").val())>2.1){
+			totalNP+=20;
+			result+="蓝chain：20<br/>"
+		}
+		result+="合计："+Math.round(totalNP*100)/100+"</p>"
+		$("#cal_result").empty();
+		$("#cal_result").append(result);
+	}
+	function singleCardNP(card,cardSeq){
+		if(card.val()=="-1"){
+			return 0;
+		}
+		var np=0;
+		var firstArtsBonus=0;
+		var critBonus=1;
+		var okBonus=1;
+		var mag=toFloat(card.val());
+		var npEff=0;
+		var hits=0;
+		var artsUp=(toFloat($("#craft_build").val())+toFloat($("#arts_up").val()))/100;
+		var quickUp=(toFloat($("#ride").val())+toFloat($("#quick_up").val()))/100;
+		var npUp=(toFloat($("#np_up").val()))/100;
+		var classBonus=toFloat($("#enemy_class").val());
+		var kindBonus=toFloat($("#enemy_kind").val());
+		
+		if(cardSeq==1){
+			if($("#first_crit").prop("checked")){
+				critBonus=2;
+			}
+			if($("#first_ok").prop("checked")){
+				okBonus=1.5;
+			}
+		}
+		else if(cardSeq==2){
+			if($("#second_crit").prop("checked")){
+				critBonus=2;
+			}
+			if($("#second_ok").prop("checked")){
+				okBonus=1.5;
+			}
+		}
+		else if(cardSeq==3){
+			if($("#third_crit").prop("checked")){
+				critBonus=2;
+			}
+			if($("#third_ok").prop("checked")){
+				okBonus=1.5;
+			}
+		}
+		else
+		{
+			if($("#ex_ok").prop("checked")){
+				critBonus=1.5;
+			}
+		}
+		
+		if($("#first_card").val()=="3")
+		{
+			firstArtsBonus=1;
+		}
+		//防浮点数误差，多加0.1
+		//红卡
+		if(mag < 0.1){
+			npEff=toFloat($("#buster_np").val());
+			hits=parseInt($("#buster_hits").val());
+			np=npEff*(firstArtsBonus+mag*(1+0))*(1+npUp)*critBonus*okBonus*hits*classBonus*kindBonus;
+		}
+		else if(mag < 2.1){
+			//Q卡
+			if(cardSeq<=3){
+				npEff=toFloat($("#quick_np").val());
+				hits=parseInt($("#quick_hits").val());
+				np=npEff*(firstArtsBonus+mag*(1+quickUp))*(1+npUp)*critBonus*okBonus*hits*classBonus*kindBonus;
+			}
+			//EX卡
+			else{
+				npEff=toFloat($("#ex_np").val());
+				hits=parseInt($("#ex_hits").val());
+				np=npEff*(firstArtsBonus+mag*(1+0))*(1+npUp)*critBonus*okBonus*hits*classBonus*kindBonus;
+			}
+		}
+		//蓝卡
+		else{
+			npEff=toFloat($("#arts_np").val());
+			hits=parseInt($("#arts_hits").val());
+			np=npEff*(firstArtsBonus+mag*(1+artsUp))*(1+npUp)*critBonus*okBonus*hits*classBonus*kindBonus;
+		}
+		return np;
+	}
+	
+	//基本NP獲得率(Atk) × [首卡加成 + 卡片倍率 x (1 ± 卡片性能Buff)] × (1 + NP獲得量Buff)× Critical補正 × Overkill補正 × 攻擊Hit數 × 伺服器控制參數(假設為1)
+
+	//首卡加成
+	//若第一張卡是Arts卡的話為1，其餘為0，寶具卡不受此加成
+
+	//Critical補正
+	//有Critical的話為2倍
+
+	//Overkill補正
+	//有Overkill的話為1.5倍
+
+	//卡片倍率
+	//Extra卡為1，寶具卡視為各顏色第1張
+
+	//倍率	Arts    Buster      Quick
+	//第1張	3	    0           1
+	//第2張	4.5	    0	        1.5
+	//第3張	6	    0	        2
+
+</script>
