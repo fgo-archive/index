@@ -1,0 +1,100 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+<script type="text/javascript" src="http://kazemai.github.io/fgo-vz/common/js/jquery.min.js"></script>
+<script type="text/javascript" src="http://kazemai.github.io/fgo-vz/common/js/sidebar.js"></script>
+<script type='text/javascript' src='http://kazemai.github.io/fgo-vz/common/js/master.js'></script>
+<script type='text/javascript' src='http://kazemai.github.io/fgo-vz/common/js/transData.js'></script>
+<script type='text/javascript' src='http://kazemai.github.io/fgo-vz/common/js/svtData.js'></script>
+
+<script type="text/javascript">
+function friendship(){
+	sortByElmentNo(master.mstSvt);
+	var str="[<br/>";
+	for(var x in master.mstSvt){
+		if((master.mstSvt[x].type==1||master.mstSvt[x].type==2||master.mstSvt[x].type==99)&&master.mstSvt[x].collectionNo>1){
+			var q=findSvtFs(master.mstSvt[x].id);
+			var n=[];
+			var m=[];
+			for(var a in master.mstFriendship){
+				if(master.mstFriendship[a].id==q&&10>master.mstFriendship[a].rank){
+					n[master.mstFriendship[a].rank]=master.mstFriendship[a].friendship;
+				}
+			}
+			m[0]=n[4]/10000;
+			for(var i=5;i<10;i++){
+				m[i-4]=(n[i]-n[i-1])/10000;
+			}
+			m[6]=n[9]/10000;
+			str+="&nbsp;&nbsp;&nbsp;&nbsp;{<br/>";
+			str+='&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"id": "'+master.mstSvt[x].collectionNo+'",<br/>';
+			str+='&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"name": "'+findSvtNameZh(master.mstSvt[x].id)+'",<br/>';
+			str+='&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"0-5": "'+m[0]+'",<br/>';
+			str+='&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"5-6": "'+m[1]+'",<br/>';
+			str+='&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"6-7": "'+m[2]+'",<br/>';
+			str+='&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"7-8": "'+m[3]+'",<br/>';
+			str+='&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"8-9": "'+m[4]+'",<br/>';
+			str+='&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"9-10": "'+m[5]+'",<br/>';
+			str+='&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"total": "'+m[6]+'"<br/>';
+			str+='&nbsp;&nbsp;&nbsp;&nbsp;},<br/>';
+		}
+	}
+	str=str.substring(0,str.length-6);
+	str+="<br/>]";
+	document.getElementById("cfriendship").remove();
+	document.getElementById("cnphit").remove();
+	document.getElementById("info").innerHTML=str;
+}
+
+function nphit(){
+	sortByElmentNo(master.mstSvt);
+	var str="[<br/>";
+	for(var x in master.mstSvt){
+		if((master.mstSvt[x].type==1||master.mstSvt[x].type==2||master.mstSvt[x].type==99)&&master.mstSvt[x].collectionNo>0){
+			var npCard="";
+			var i=0,j=0;
+			var desc="";
+			var hits=0;
+			for(var y in master.mstSvtTreasureDevice){
+				if(master.mstSvtTreasureDevice[y].svtId==master.mstSvt[x].id&&master.mstSvtTreasureDevice[y].treasureDeviceId!=100&&master.mstSvtTreasureDevice[y].num<10){
+					if(master.mstSvtTreasureDevice[y].cardId==1){npCard="Arts";}else if(master.mstSvtTreasureDevice[y].cardId==2){npCard="Buster";}else if(master.mstSvtTreasureDevice[y].cardId==3){npCard="Quick";}else {npCard=="unknown";}
+					i=master.mstSvt[x].id;
+					j=master.mstSvtTreasureDevice[y].treasureDeviceId;
+					hits=master.mstSvtTreasureDevice[y].damage.length;
+					break;
+				}
+			}
+			for(var z in tdDetail){
+				if(tdDetail[z][0]==j){
+					desc=tdDetail[z][1];
+					if(desc.search(/攻擊[^力]|攻撃[^力]/)==-1) {hits=0;}
+					break;
+				}
+			}
+			str+="&nbsp;&nbsp;&nbsp;&nbsp;{<br/>";
+			str+='&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"id": "'+master.mstSvt[x].collectionNo+'",<br/>';
+			str+='&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"name": "'+findSvtNameZh(master.mstSvt[x].id)+'",<br/>';
+			str+='&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"npHits": "'+hits+'",<br/>';
+			str+='&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"npColor": "'+npCard+'"<br/>';
+			str+='&nbsp;&nbsp;&nbsp;&nbsp;},<br/>';
+		}
+	}
+	str=str.substring(0,str.length-6);
+	str+="<br/>]";
+	document.getElementById("cfriendship").remove();
+	document.getElementById("cnphit").remove();
+	document.getElementById("info").innerHTML=str;
+}
+</script>
+
+</head>
+<body>
+	<div>
+		<input type="button" id="cfriendship" onclick="friendship()" value="friendship">
+		<input type="button" id="cnphit" onclick="nphit()" value="nphit">
+		<p id="info"></p>
+	</div>
+</body>
+</html>

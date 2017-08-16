@@ -1,7 +1,7 @@
 <html>
 <head>
 	<meta http-equiv="content-type" content="text/html;charset=utf-8">
-	<title>NP</title>
+	<title>NP计算器</title>
 	<link rel="stylesheet" href="css/trash.css" type="text/css" />
 </style> 
 </head>
@@ -52,7 +52,10 @@
 			<td><input type="text" id="ride" style="width:50px" disabled></td>
 			<td>阵地建造(%)</td>
 			<td><input type="text" id="craft_build" style="width:50px" disabled></td>
-			<td colspan="4"></td>
+			<td>宝具hit数(%)</td>
+			<td><input type="text" id="np_hits" style="width:50px" disabled></td>
+			<td>宝具NP率(%)</td>
+			<td><input type="text" id="np_np" style="width:50px" disabled></td>
 		</tr>
 		
 		<tr>
@@ -92,37 +95,40 @@
 			<td><input type="checkbox" id="second_ok" style="width:50px"></td>
 			<td><input type="checkbox" id="third_ok" style="width:50px"></td>
 			<td><input type="checkbox" id="ex_ok" style="width:50px"></td>
-			
 		</tr>
 		
 		<tr>
 			<td>卡序</td>
 			<td>
-				<select id="first_card"  style="width:60px">
+				<select id="first_card"  style="width:65px">
 					<option value="-1" >无</option>
 					<option value="0">Buster</option>
 					<option value="3">Arts</option>
 					<option value="1">Quick</option>
+					<option value="-11">宝具</option>
+					<option value="-2">仅染色</option>
 				</select>
 			</td>
 			<td>
-				<select id="second_card" style="width:60px">
+				<select id="second_card" style="width:65px">
 					<option value="-1">无</option>
 					<option value="0">Buster</option>
 					<option value="4.5">Arts</option>
 					<option value="1.5">Quick</option>
+					<option value="-11">宝具</option>
 				</select>
 			</td>
 			<td>
-				<select id="third_card" style="width:60px">
+				<select id="third_card" style="width:65px">
 					<option value="-1">无</option>
 					<option value="0">Buster</option>
 					<option value="6">Arts</option>
 					<option value="2">Quick</option>
+					<option value="-11">宝具</option>
 				</select>
 			</td>
 			<td>
-				<select id="ex_card" style="width:60px">
+				<select id="ex_card" style="width:65px">
 					<option value="-1">无</option>
 					<option value="1">EX</option>
 				</select>
@@ -151,7 +157,7 @@
 		</tr>
 		
 		<tr>
-			<td colspan="8">例外：1.死灵类中鐘を鳴らすもの和エレシュキガル的种类补正是1。<br/>2.クリスティーヌ以狂阶补正计算。</td>
+			<td colspan="8">例外：1.死灵类中鐘を鳴らすもの和エレシュキガル的种类补正是1。<br/>2.クリスティーヌ(Assassin)以狂阶补正计算。</td>
 		</tr>
 	</table>
 </body>
@@ -200,7 +206,21 @@
 		$("#ex_np").val(servants[seq].EXNp);
 		$("#ride").val(servants[seq].QuickEff);
 		$("#craft_build").val(servants[seq].ArtsEff);
+		$("#np_np").val(servants[seq].npNp);
+		$("#np_hits").val(servants[seq].npHits);
 		$("#cards").empty();
+		if(servants[seq].npCard=="Buster"){
+			var card='<img src="resources/Buster.png" style="width:80">';
+			$("#cards").append(card);
+		}
+		else if(servants[seq].npCard=="Arts"){
+			var card='<img src="resources/Arts.png" style="width:80">';
+			$("#cards").append(card);
+		}
+		else if(servants[seq].npCard=="Quick"){
+			var card='<img src="resources/Quick.png" style="width:80">';
+			$("#cards").append(card);
+		}
 		for(var i=0;i<servants[seq].BusterCards;i++){
 			var card='<img src="resources/Buster.png" style="width:50">';
 			$("#cards").append(card);
@@ -295,7 +315,7 @@
 		result+="次卡："+Math.round(secondNP*100)/100+"<br/>"
 		result+="尾卡："+Math.round(thirdNP*100)/100+"<br/>"
 		result+="EX："+Math.round(exNP*100)/100+"<br/>"
-		if(toFloat($("#first_card").val())>2.1 && toFloat($("#second_card").val())>2.1 && toFloat($("#third_card").val())>2.1){
+		if(toFloat($("#first_card").val())>2.01 && toFloat($("#second_card").val())>2.01 && toFloat($("#third_card").val())>2.01){
 			totalNP+=20;
 			result+="蓝chain：20<br/>"
 		}
@@ -304,7 +324,12 @@
 		$("#cal_result").append(result);
 	}
 	function singleCardNP(card,cardSeq){
-		if(card.val()=="-1"){
+		//无卡或为染色卡
+		if(card.val()=="-1"||card.val()=="-2"){
+			return 0;
+		}
+		//红卡宝具
+		if(card.val()=="-11" && servants[$("#servants").val()].npCard=="Buster"){
 			return 0;
 		}
 		var np=0;
@@ -350,19 +375,33 @@
 				critBonus=1.5;
 			}
 		}
-		
-		if($("#first_card").val()=="3")
+		//首卡染色
+		if($("#first_card").val()=="3"||$("#first_card").val()=="-2"||($("#first_card").val()=="-11"&&servants[$("#servants").val()].npCard=="Arts"))
 		{
 			firstArtsBonus=1;
 		}
-		//防浮点数误差，多加0.1
+		//防浮点数误差，多算0.01
+		if(mag < -10.99){
+			npEff=toFloat($("#np_np").val());
+			hits=parseInt($("#np_hits").val());
+			firstArtsBonus=0;
+			critBonus=1;
+			if(servants[$("#servants").val()].npCard=="Arts"){
+				mag=3
+				np=npEff*(firstArtsBonus+mag*(1+artsUp))*(1+npUp)*critBonus*okBonus*hits*classBonus*kindBonus;
+			}
+			else if(servants[$("#servants").val()].npCard=="Quick"){
+				mag=1
+				np=npEff*(firstArtsBonus+mag*(1+quickUp))*(1+npUp)*critBonus*okBonus*hits*classBonus*kindBonus;
+			}
+		}
 		//红卡
-		if(mag < 0.1){
+		else if(mag < 0.01){
 			npEff=toFloat($("#buster_np").val());
 			hits=parseInt($("#buster_hits").val());
 			np=npEff*(firstArtsBonus+mag*(1+0))*(1+npUp)*critBonus*okBonus*hits*classBonus*kindBonus;
 		}
-		else if(mag < 2.1){
+		else if(mag < 2.01){
 			//Q卡
 			if(cardSeq<=3){
 				npEff=toFloat($("#quick_np").val());

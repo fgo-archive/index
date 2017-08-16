@@ -5,7 +5,6 @@ table {
 	border:1px solid #aaa;
 	}
 table th {
-	vertical-align:text-center;
 	padding:5px 15px 5px 6px;
 	background-color:#f5e8cb;
 	border:1px solid #aaa;
@@ -13,7 +12,6 @@ table th {
 	color:#333333;
 	}
 table td {
-	vertical-align:text-center;
 	padding:6px 15px 6px 6px;
 	border:1px solid #aaa;
 	text-align:center;
