@@ -52,7 +52,7 @@
 			<td><input type="text" id="ride" style="width:50px" disabled></td>
 			<td>阵地建造(%)</td>
 			<td><input type="text" id="craft_build" style="width:50px" disabled></td>
-			<td>宝具hit数(%)</td>
+			<td>宝具hit数</td>
 			<td><input type="text" id="np_hits" style="width:50px" disabled></td>
 			<td>宝具NP率(%)</td>
 			<td><input type="text" id="np_np" style="width:50px" disabled></td>
@@ -159,7 +159,11 @@
 		<tr>
 			<td colspan="8">例外：1.死灵类中鐘を鳴らすもの和エレシュキガル的种类补正是1。<br/>2.クリスティーヌ(Assassin)以狂阶补正计算。</td>
 		</tr>
+		<tr>
+			<td colspan="8" style="text-align:right; font-size:12px; border:1px solid #fff;"><a href="https://xianlechuanshuo.github.io/fgo/index.html">友情链接：宝具计算器</a></td>
+		</tr>
 	</table>
+	
 </body>
 </html>
 
@@ -210,15 +214,15 @@
 		$("#np_hits").val(servants[seq].npHits);
 		$("#cards").empty();
 		if(servants[seq].npCard=="Buster"){
-			var card='<img src="resources/Buster.png" style="width:80">';
+			var card='<img src="resources/Buster.png" style="width:81">';
 			$("#cards").append(card);
 		}
 		else if(servants[seq].npCard=="Arts"){
-			var card='<img src="resources/Arts.png" style="width:80">';
+			var card='<img src="resources/Arts.png" style="width:81">';
 			$("#cards").append(card);
 		}
 		else if(servants[seq].npCard=="Quick"){
-			var card='<img src="resources/Quick.png" style="width:80">';
+			var card='<img src="resources/Quick.png" style="width:81">';
 			$("#cards").append(card);
 		}
 		for(var i=0;i<servants[seq].BusterCards;i++){
@@ -315,7 +319,7 @@
 		result+="次卡："+Math.round(secondNP*100)/100+"<br/>"
 		result+="尾卡："+Math.round(thirdNP*100)/100+"<br/>"
 		result+="EX："+Math.round(exNP*100)/100+"<br/>"
-		if(toFloat($("#first_card").val())>2.01 && toFloat($("#second_card").val())>2.01 && toFloat($("#third_card").val())>2.01){
+		if((toFloat($("#first_card").val())>2.01||$("#first_card").val()=="-2") && toFloat($("#second_card").val())>2.01 && toFloat($("#third_card").val())>2.01){
 			totalNP+=20;
 			result+="蓝chain：20<br/>"
 		}
