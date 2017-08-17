@@ -3,11 +3,11 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title></title>
-<script type="text/javascript" src="http://kazemai.github.io/fgo-vz/common/js/jquery.min.js"></script>
-<script type="text/javascript" src="http://kazemai.github.io/fgo-vz/common/js/sidebar.js"></script>
-<script type='text/javascript' src='http://kazemai.github.io/fgo-vz/common/js/master.js'></script>
-<script type='text/javascript' src='http://kazemai.github.io/fgo-vz/common/js/transData.js'></script>
-<script type='text/javascript' src='http://kazemai.github.io/fgo-vz/common/js/svtData.js'></script>
+<script type="text/javascript" src="https://kazemai.github.io/fgo-vz/common/js/jquery.min.js"></script>
+<script type="text/javascript" src="https://kazemai.github.io/fgo-vz/common/js/sidebar.js"></script>
+<script type='text/javascript' src='https://kazemai.github.io/fgo-vz/common/js/master.js'></script>
+<script type='text/javascript' src='https://kazemai.github.io/fgo-vz/common/js/transData.js'></script>
+<script type='text/javascript' src='https://kazemai.github.io/fgo-vz/common/js/svtData.js'></script>
 
 <script type="text/javascript">
 function friendship(){
@@ -43,11 +43,32 @@ function friendship(){
 	}
 	str=str.substring(0,str.length-6);
 	str+="<br/>]";
-	document.getElementById("cfriendship").remove();
-	document.getElementById("cnphit").remove();
+	removeItems();
 	document.getElementById("info").innerHTML=str;
 }
 
+function friendship2(){
+	sortByElmentNo(master.mstSvt);
+	var str="";
+	for(var x in master.mstSvt){
+		if((master.mstSvt[x].type==1||master.mstSvt[x].type==2||master.mstSvt[x].type==99)&&master.mstSvt[x].collectionNo>1){
+			var q=findSvtFs(master.mstSvt[x].id);
+			var n=[];
+			var m=[];
+			for(var a in master.mstFriendship){
+				if(master.mstFriendship[a].id==q&&10>master.mstFriendship[a].rank){
+					n[master.mstFriendship[a].rank]=master.mstFriendship[a].friendship;
+				}
+			}
+			str+=master.mstSvt[x].collectionNo+'    ';
+			str+=findSvtNameZh(master.mstSvt[x].id)+'    ';
+			for(var i=4;i<10;i++){
+				str+=n[i]/10000+'    '
+			}
+			str+='<br/>';
+		}
+	}
+}
 function nphit(){
 	sortByElmentNo(master.mstSvt);
 	var str="[<br/>";
@@ -83,9 +104,14 @@ function nphit(){
 	}
 	str=str.substring(0,str.length-6);
 	str+="<br/>]";
-	document.getElementById("cfriendship").remove();
-	document.getElementById("cnphit").remove();
+	removeItems();
 	document.getElementById("info").innerHTML=str;
+}
+
+function removeItems(){
+	document.getElementById("cfriendship").remove();
+	document.getElementById("cfriendship2").remove();
+	document.getElementById("cnphit").remove();
 }
 </script>
 
@@ -93,6 +119,7 @@ function nphit(){
 <body>
 	<div>
 		<input type="button" id="cfriendship" onclick="friendship()" value="friendship">
+		<input type="button" id="cfriendship2" onclick="friendship2()" value="friendship2">
 		<input type="button" id="cnphit" onclick="nphit()" value="nphit">
 		<p id="info"></p>
 	</div>
