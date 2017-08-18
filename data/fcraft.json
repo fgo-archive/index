@@ -2,7 +2,7 @@
     {
         "id": "191",
         "name": "星之王冠",
-        "servantId": "2",
+        "servantID": "2",
         "servant": "阿尔托莉雅·潘德拉贡",
         "friendship": {
             "0-5": "2.75",
@@ -18,7 +18,7 @@
     {
         "id": "195",
         "name": "龙之记忆",
-        "servantId": "3",
+        "servantID": "3",
         "servant": "阿尔托莉雅·潘德拉贡[Alter]",
         "friendship": {
             "0-5": "4",
@@ -34,7 +34,7 @@
     {
         "id": "221",
         "name": "花之启航",
-        "servantId": "4",
+        "servantID": "4",
         "servant": "阿尔托莉雅·潘德拉贡[Lily]",
         "friendship": {
             "0-5": "2",
@@ -50,7 +50,7 @@
     {
         "id": "218",
         "name": "雷鸣般的喝彩",
-        "servantId": "5",
+        "servantID": "5",
         "servant": "尼禄·克劳狄乌斯",
         "friendship": {
             "0-5": "2.75",
@@ -66,7 +66,7 @@
     {
         "id": "219",
         "name": "莱茵的黄金",
-        "servantId": "6",
+        "servantID": "6",
         "servant": "齐格飞",
         "friendship": {
             "0-5": "2.75",
@@ -82,7 +82,7 @@
     {
         "id": "286",
         "name": "高卢战记",
-        "servantId": "7",
+        "servantID": "7",
         "servant": "盖乌斯·尤里乌斯·凯撒",
         "friendship": {
             "0-5": "2.75",
@@ -98,7 +98,7 @@
     {
         "id": "201",
         "name": "永劫孤独",
-        "servantId": "8",
+        "servantID": "8",
         "servant": "阿蒂拉",
         "friendship": {
             "0-5": "4",
@@ -114,7 +114,7 @@
     {
         "id": "304",
         "name": "螺湮城教本",
-        "servantId": "9",
+        "servantID": "9",
         "servant": "吉尔·德·雷",
         "friendship": {
             "0-5": "2.75",
@@ -130,7 +130,7 @@
     {
         "id": "202",
         "name": "王妃的赠礼",
-        "servantId": "10",
+        "servantID": "10",
         "servant": "骑士迪昂",
         "friendship": {
             "0-5": "2",
@@ -146,7 +146,7 @@
     {
         "id": "196",
         "name": "赤原猎兵",
-        "servantId": "11",
+        "servantID": "11",
         "servant": "卫宫",
         "friendship": {
             "0-5": "2.75",
@@ -162,7 +162,7 @@
     {
         "id": "216",
         "name": "王律之键",
-        "servantId": "12",
+        "servantID": "12",
         "servant": "吉尔伽美什",
         "friendship": {
             "0-5": "5",
@@ -178,7 +178,7 @@
     {
         "id": "269",
         "name": "无颜之王",
-        "servantId": "13",
+        "servantID": "13",
         "servant": "罗宾汉",
         "friendship": {
             "0-5": "3.5",
@@ -194,7 +194,7 @@
     {
         "id": "233",
         "name": "黄金苹果",
-        "servantId": "14",
+        "servantID": "14",
         "servant": "阿塔兰忒",
         "friendship": {
             "0-5": "3.5",
@@ -210,7 +210,7 @@
     {
         "id": "323",
         "name": "女神的光辉",
-        "servantId": "15",
+        "servantID": "15",
         "servant": "尤瑞艾莉",
         "friendship": {
             "0-5": "2.75",
@@ -226,7 +226,7 @@
     {
         "id": "210",
         "name": "神圣的献身",
-        "servantId": "16",
+        "servantID": "16",
         "servant": "阿拉什",
         "friendship": {
             "0-5": "1.5",
@@ -242,7 +242,7 @@
     {
         "id": "252",
         "name": "预言之星",
-        "servantId": "17",
+        "servantID": "17",
         "servant": "库·丘林",
         "friendship": {
             "0-5": "2.75",
@@ -258,7 +258,7 @@
     {
         "id": "203",
         "name": "不死灵药",
-        "servantId": "18",
+        "servantID": "18",
         "servant": "伊丽莎白·巴托里",
         "friendship": {
             "0-5": "1",
@@ -274,7 +274,7 @@
     {
         "id": "288",
         "name": "五条大桥的邂逅",
-        "servantId": "19",
+        "servantID": "19",
         "servant": "武藏坊弁庆",
         "friendship": {
             "0-5": "2",
@@ -290,7 +290,7 @@
     {
         "id": "322",
         "name": "氏族的猛犬",
-        "servantId": "20",
+        "servantID": "20",
         "servant": "库·丘林(Prototype)",
         "friendship": {
             "0-5": "2",
@@ -306,7 +306,7 @@
     {
         "id": "274",
         "name": "炽热之门",
-        "servantId": "21",
+        "servantID": "21",
         "servant": "列奥尼达一世",
         "friendship": {
             "0-5": "2",
@@ -322,7 +322,7 @@
     {
         "id": "287",
         "name": "罗马",
-        "servantId": "22",
+        "servantID": "22",
         "servant": "罗穆路斯",
         "friendship": {
             "0-5": "5",
@@ -338,7 +338,7 @@
     {
         "id": "254",
         "name": "无形之岛",
-        "servantId": "23",
+        "servantID": "23",
         "servant": "美杜莎",
         "friendship": {
             "0-5": "3.5",
@@ -354,7 +354,7 @@
     {
         "id": "273",
         "name": "所剩之物",
-        "servantId": "24",
+        "servantID": "24",
         "servant": "乔尔乔斯",
         "friendship": {
             "0-5": "2.75",
@@ -370,7 +370,7 @@
     {
         "id": "238",
         "name": "往昔的荣光",
-        "servantId": "25",
+        "servantID": "25",
         "servant": "爱德华·蒂奇",
         "friendship": {
             "0-5": "1",
@@ -386,7 +386,7 @@
     {
         "id": "208",
         "name": "胜利的渴望",
-        "servantId": "26",
+        "servantID": "26",
         "servant": "布狄卡",
         "friendship": {
             "0-5": "1.5",
@@ -402,7 +402,7 @@
     {
         "id": 270,
         "name": "薄绿",
-        "servantId": "27",
+        "servantID": "27",
         "servant": "牛若丸",
         "friendship": {
             "0-5": "2",
@@ -418,7 +418,7 @@
     {
         "id": 255,
         "name": "贤者的桶",
-        "servantId": "28",
+        "servantID": "28",
         "servant": "亚历山大",
         "friendship": {
             "0-5": "2.75",
@@ -434,7 +434,7 @@
     {
         "id": "204",
         "name": "我的项链",
-        "servantId": "29",
+        "servantID": "29",
         "servant": "玛丽·安托瓦内特",
         "friendship": {
             "0-5": "1",
@@ -450,7 +450,7 @@
     {
         "id": "205",
         "name": "他赐予的杖",
-        "servantId": "30",
+        "servantID": "30",
         "servant": "玛尔达",
         "friendship": {
             "0-5": "2.75",
@@ -466,7 +466,7 @@
     {
         "id": 253,
         "name": "赫卡特的锡杖",
-        "servantId": "31",
+        "servantID": "31",
         "servant": "美狄亚",
         "friendship": {
             "0-5": "2.75",
@@ -482,7 +482,7 @@
     {
         "id": 321,
         "name": "来自朋友的信",
-        "servantId": "32",
+        "servantID": "32",
         "servant": "吉尔·德·雷",
         "friendship": {
             "0-5": "3.5",
@@ -498,7 +498,7 @@
     {
         "id": "209",
         "name": "献给亲爱的你",
-        "servantId": "33",
+        "servantID": "33",
         "servant": "汉斯·克里斯蒂安·安徒生",
         "friendship": {
             "0-5": "4",
@@ -514,7 +514,7 @@
     {
         "id": 290,
         "name": "超方便",
-        "servantId": "34",
+        "servantID": "34",
         "servant": "威廉·莎士比亚",
         "friendship": {
             "0-5": "2.75",
@@ -530,7 +530,7 @@
     {
         "id": 305,
         "name": "寄生爆弹虫",
-        "servantId": "35",
+        "servantID": "35",
         "servant": "梅菲斯托费勒斯",
         "friendship": {
             "0-5": "2",
@@ -546,7 +546,7 @@
     {
         "id": 275,
         "name": "海顿弦乐四重奏",
-        "servantId": "36",
+        "servantID": "36",
         "servant": "沃尔夫冈·阿马德乌斯·莫扎特",
         "friendship": {
             "0-5": "2.75",
@@ -562,7 +562,7 @@
     {
         "id": "192",
         "name": "王之遗物",
-        "servantId": "37",
+        "servantID": "37",
         "servant": "诸葛孔明(埃尔梅罗II世)",
         "friendship": {
             "0-5": "5",
@@ -578,7 +578,7 @@
     {
         "id": "198",
         "name": "为林之圣",
-        "servantId": "38",
+        "servantID": "38",
         "servant": "库·丘林",
         "friendship": {
             "0-5": "2.75",
@@ -594,7 +594,7 @@
     {
         "id": 239,
         "name": "山中夜空",
-        "servantId": "39",
+        "servantID": "39",
         "servant": "佐佐木小次郎",
         "friendship": {
             "0-5": "2.75",
@@ -610,7 +610,7 @@
     {
         "id": 256,
         "name": "撒旦之手",
-        "servantId": "40",
+        "servantID": "40",
         "servant": "咒腕哈桑",
         "friendship": {
             "0-5": "2.75",
@@ -626,7 +626,7 @@
     {
         "id": "220",
         "name": "女神的闪耀",
-        "servantId": "41",
+        "servantID": "41",
         "servant": "斯忒诺",
         "friendship": {
             "0-5": "2.75",
@@ -642,7 +642,7 @@
     {
         "id": 271,
         "name": "九宾之礼",
-        "servantId": "42",
+        "servantID": "42",
         "servant": "荆轲",
         "friendship": {
             "0-5": "2",
@@ -658,7 +658,7 @@
     {
         "id": 307,
         "name": "我的人生即不吉",
-        "servantId": "43",
+        "servantID": "43",
         "servant": "夏尔·亨利·桑松",
         "friendship": {
             "0-5": "2.75",
@@ -674,7 +674,7 @@
     {
         "id": 289,
         "name": "肮脏的死之假面",
-        "servantId": "44",
+        "servantID": "44",
         "servant": "剧院魅影",
         "friendship": {
             "0-5": "5",
@@ -690,7 +690,7 @@
     {
         "id": "200",
         "name": "无价之宝",
-        "servantId": "45",
+        "servantID": "45",
         "servant": "玛塔·哈丽",
         "friendship": {
             "0-5": "1",
@@ -706,7 +706,7 @@
     {
         "id": "206",
         "name": "铁处女",
-        "servantId": "46",
+        "servantID": "46",
         "servant": "卡米拉",
         "friendship": {
             "0-5": "3.5",
@@ -722,7 +722,7 @@
     {
         "id": "197",
         "name": "雪之城",
-        "servantId": "47",
+        "servantID": "47",
         "servant": "赫拉克勒斯",
         "friendship": {
             "0-5": "2.75",
@@ -738,7 +738,7 @@
     {
         "id": 232,
         "name": "黑骑士之盔",
-        "servantId": "48",
+        "servantID": "48",
         "servant": "兰斯洛特",
         "friendship": {
             "0-5": "4",
@@ -754,7 +754,7 @@
     {
         "id": 272,
         "name": "方天画戟",
-        "servantId": "49",
+        "servantID": "49",
         "servant": "吕布奉先",
         "friendship": {
             "0-5": "2.75",
@@ -770,7 +770,7 @@
     {
         "id": "225",
         "name": "叛逆吧",
-        "servantId": "50",
+        "servantID": "50",
         "servant": "斯巴达克斯",
         "friendship": {
             "0-5": "1",
@@ -786,7 +786,7 @@
     {
         "id": "217",
         "name": "黄金眼镜",
-        "servantId": "51",
+        "servantID": "51",
         "servant": "坂田金时",
         "friendship": {
             "0-5": "2",
@@ -802,7 +802,7 @@
     {
         "id": "193",
         "name": "穿刺公的凯旋",
-        "servantId": "52",
+        "servantID": "52",
         "servant": "弗拉德三世",
         "friendship": {
             "0-5": "5",
@@ -818,7 +818,7 @@
     {
         "id": 257,
         "name": "阿里阿德涅的绒线",
-        "servantId": "53",
+        "servantID": "53",
         "servant": "阿斯忒里俄斯",
         "friendship": {
             "0-5": "2.75",
@@ -834,7 +834,7 @@
     {
         "id": 308,
         "name": "爱、不在此处",
-        "servantId": "54",
+        "servantID": "54",
         "servant": "卡里古拉",
         "friendship": {
             "0-5": "3.5",
@@ -850,7 +850,7 @@
     {
         "id": "223",
         "name": "通往巴比伦之门",
-        "servantId": "55",
+        "servantID": "55",
         "servant": "大流士三世",
         "friendship": {
             "0-5": "5",
@@ -866,7 +866,7 @@
     {
         "id": "199",
         "name": "灼热的拥抱",
-        "servantId": "56",
+        "servantID": "56",
         "servant": "清姬",
         "friendship": {
             "0-5": "1.5",
@@ -882,7 +882,7 @@
     {
         "id": "224",
         "name": "嗜血之斧",
-        "servantId": "57",
+        "servantID": "57",
         "servant": "血斧埃里克",
         "friendship": {
             "0-5": "3.5",
@@ -898,7 +898,7 @@
     {
         "id": "207",
         "name": "猫咪围裙",
-        "servantId": "58",
+        "servantID": "58",
         "servant": "玉藻猫",
         "friendship": {
             "0-5": "2.75",
@@ -914,7 +914,7 @@
     {
         "id": "194",
         "name": "天之启示",
-        "servantId": "59",
+        "servantID": "59",
         "servant": "贞德",
         "friendship": {
             "0-5": "2.75",
@@ -930,7 +930,7 @@
     {
         "id": 230,
         "name": "三星腰带",
-        "servantId": "60",
+        "servantID": "60",
         "servant": "俄里翁",
         "friendship": {
             "0-5": "5",
@@ -946,7 +946,7 @@
     {
         "id": 234,
         "name": "南瓜圣杯",
-        "servantId": "61",
+        "servantID": "61",
         "servant": "伊丽莎白·巴托里[万圣节]",
         "friendship": {
             "0-5": "1",
@@ -962,7 +962,7 @@
     {
         "id": 248,
         "name": "玉藻俱乐部",
-        "servantId": "62",
+        "servantID": "62",
         "servant": "玉藻前",
         "friendship": {
             "0-5": "2.75",
@@ -978,7 +978,7 @@
     {
         "id": "222",
         "name": "约柜",
-        "servantId": "63",
+        "servantID": "63",
         "servant": "大卫",
         "friendship": {
             "0-5": "2.7",
@@ -994,7 +994,7 @@
     {
         "id": 324,
         "name": "英雄的武装",
-        "servantId": "64",
+        "servantID": "64",
         "servant": "赫克托耳",
         "friendship": {
             "0-5": "2.75",
@@ -1010,7 +1010,7 @@
     {
         "id": 231,
         "name": "黄金之舵",
-        "servantId": "65",
+        "servantID": "65",
         "servant": "弗朗西斯·德雷克",
         "friendship": {
             "0-5": "3.5",
@@ -1026,7 +1026,7 @@
     {
         "id": 250,
         "name": "白棉布杰克",
-        "servantId": "66",
+        "servantID": "66",
         "servant": "安妮·伯妮&玛莉·瑞德",
         "friendship": {
             "0-5": "2.75",
@@ -1042,7 +1042,7 @@
     {
         "id": 318,
         "name": "无限的薄煎饼",
-        "servantId": "67",
+        "servantID": "67",
         "servant": "美狄亚(lily)",
         "friendship": {
             "0-5": "5",
@@ -1058,7 +1058,7 @@
     {
         "id": 249,
         "name": "觉悟的盔钵",
-        "servantId": "68",
+        "servantID": "68",
         "servant": "冲田总司",
         "friendship": {
             "0-5": "2.75",
@@ -1074,7 +1074,7 @@
     {
         "id": 235,
         "name": "回转式火绳枪",
-        "servantId": "69",
+        "servantID": "69",
         "servant": "织田信长",
         "friendship": {
             "0-5": "5",
@@ -1090,7 +1090,7 @@
     {
         "id": 251,
         "name": "面临魔境",
-        "servantId": "70",
+        "servantID": "70",
         "servant": "斯卡哈",
         "friendship": {
             "0-5": "5",
@@ -1106,7 +1106,7 @@
     {
         "id": 341,
         "name": "骑士的誓约",
-        "servantId": "71",
+        "servantID": "71",
         "servant": "迪尔穆德·奥迪那",
         "friendship": {
             "0-5": "2.75",
@@ -1122,7 +1122,7 @@
     {
         "id": 306,
         "name": "勇士的翻腾",
-        "servantId": "72",
+        "servantID": "72",
         "servant": "弗格斯·马克·罗伊",
         "friendship": {
             "0-5": "1",
@@ -1138,7 +1138,7 @@
     {
         "id": 236,
         "name": "拉姆利二号",
-        "servantId": "73",
+        "servantID": "73",
         "servant": "阿尔托莉雅·帕德拉贡[圣诞Alter]",
         "friendship": {
             "0-5": "2.75",
@@ -1154,7 +1154,7 @@
     {
         "id": 454,
         "name": "乐园",
-        "servantId": "74",
+        "servantID": "74",
         "servant": "童谣",
         "friendship": {
             "0-5": "4",
@@ -1170,7 +1170,7 @@
     {
         "id": 267,
         "name": "雾夜的伦敦",
-        "servantId": "75",
+        "servantID": "75",
         "servant": "开膛手杰克",
         "friendship": {
             "0-5": "5",
@@ -1186,7 +1186,7 @@
     {
         "id": 266,
         "name": "我是谁？",
-        "servantId": "76",
+        "servantID": "76",
         "servant": "莫德雷德",
         "friendship": {
             "0-5": "2.75",
@@ -1202,7 +1202,7 @@
     {
         "id": 281,
         "name": "雷电之手",
-        "servantId": "77",
+        "servantID": "77",
         "servant": "尼古拉·特斯拉",
         "friendship": {
             "0-5": "5",
@@ -1218,7 +1218,7 @@
     {
         "id": 285,
         "name": "漆黑头盔",
-        "servantId": "78",
+        "servantID": "78",
         "servant": "阿尔托莉雅·潘德拉贡[Alter]",
         "friendship": {
             "0-5": "4",
@@ -1234,7 +1234,7 @@
     {
         "id": 342,
         "name": "四元素的精灵",
-        "servantId": "79",
+        "servantID": "79",
         "servant": "冯·霍恩海姆·帕拉塞尔苏斯",
         "friendship": {
             "0-5": "2.75",
@@ -1250,7 +1250,7 @@
     {
         "id": 343,
         "name": "真·差分机",
-        "servantId": "80",
+        "servantID": "80",
         "servant": "查尔斯·巴贝奇",
         "friendship": {
             "0-5": "2.75",
@@ -1266,7 +1266,7 @@
     {
         "id": 237,
         "name": "留住心的物品",
-        "servantId": "81",
+        "servantID": "81",
         "servant": "亨利·杰基尔&海德",
         "friendship": {
             "0-5": "4",
@@ -1282,7 +1282,7 @@
     {
         "id": 284,
         "name": "成为人类的旅途",
-        "servantId": "82",
+        "servantID": "82",
         "servant": "弗兰肯斯坦",
         "friendship": {
             "0-5": "2",
@@ -1298,7 +1298,7 @@
     {
         "id": 282,
         "name": "天授之英雄",
-        "servantId": "84",
+        "servantID": "84",
         "servant": "阿周那",
         "friendship": {
             "0-5": "5",
@@ -1314,7 +1314,7 @@
     {
         "id": 283,
         "name": "贫者一灯",
-        "servantId": "85",
+        "servantID": "85",
         "servant": "迦尔纳",
         "friendship": {
             "0-5": "5",
@@ -1330,7 +1330,7 @@
     {
         "id": 299,
         "name": "歼灭名单",
-        "servantId": "86",
+        "servantID": "86",
         "servant": "秘之女主角X",
         "friendship": {
             "0-5": "2.75",
@@ -1346,7 +1346,7 @@
     {
         "id": 303,
         "name": "智慧之鱼",
-        "servantId": "87",
+        "servantID": "87",
         "servant": "冯恩·麦克库尔",
         "friendship": {
             "0-5": "2.75",
@@ -1362,7 +1362,7 @@
     {
         "id": 300,
         "name": "不会消失的火焰",
-        "servantId": "88",
+        "servantID": "88",
         "servant": "布伦希尔德",
         "friendship": {
             "0-5": "5",
@@ -1378,7 +1378,7 @@
     {
         "id": 302,
         "name": "最后的战斗",
-        "servantId": "89",
+        "servantID": "89",
         "servant": "贝奥武夫",
         "friendship": {
             "0-5": "2.75",
@@ -1394,7 +1394,7 @@
     {
         "id": 301,
         "name": "月桂树的戒指",
-        "servantId": "90",
+        "servantID": "90",
         "servant": "尼禄·克劳狄乌斯(新娘)",
         "friendship": {
             "0-5": "2.75",
@@ -1410,7 +1410,7 @@
     {
         "id": 315,
         "name": "无我识 心空妙有",
-        "servantId": "91",
+        "servantID": "91",
         "servant": "两仪式",
         "friendship": {
             "0-5": "5",
@@ -1426,7 +1426,7 @@
     {
         "id": 319,
         "name": "红色套衫",
-        "servantId": "92",
+        "servantID": "92",
         "servant": "两仪式",
         "friendship": {
             "0-5": "5",
@@ -1442,7 +1442,7 @@
     {
         "id": 316,
         "name": "天草四郎阵中旗",
-        "servantId": "93",
+        "servantID": "93",
         "servant": "天草四郎",
         "friendship": {
             "0-5": "2.75",
@@ -1458,7 +1458,7 @@
     {
         "id": 320,
         "name": "此世无存的幻马",
-        "servantId": "94",
+        "servantID": "94",
         "servant": "阿斯托尔福",
         "friendship": {
             "0-5": "1.5",
@@ -1474,7 +1474,7 @@
     {
         "id": 355,
         "name": "黄金律的表现",
-        "servantId": "95",
+        "servantID": "95",
         "servant": "幼吉尔",
         "friendship": {
             "0-5": "5",
@@ -1490,7 +1490,7 @@
     {
         "id": 317,
         "name": "伊夫堡",
-        "servantId": "96",
+        "servantID": "96",
         "servant": "岩窟王 埃德蒙·唐泰斯",
         "friendship": {
             "0-5": "5",
@@ -1506,7 +1506,7 @@
     {
         "id": 334,
         "name": "不屈不挠",
-        "servantId": "97",
+        "servantID": "97",
         "servant": "南丁格尔",
         "friendship": {
             "0-5": "5",
@@ -1522,7 +1522,7 @@
     {
         "id": 335,
         "name": "只有一人的战争",
-        "servantId": "98",
+        "servantID": "98",
         "servant": "库·丘林[Alter]",
         "friendship": {
             "0-5": "5",
@@ -1538,7 +1538,7 @@
     {
         "id": 336,
         "name": "圣泉",
-        "servantId": "99",
+        "servantID": "99",
         "servant": "梅芙",
         "friendship": {
             "0-5": "3.5",
@@ -1554,7 +1554,7 @@
     {
         "id": 338,
         "name": "被隐藏的女神",
-        "servantId": "100",
+        "servantID": "100",
         "servant": "海伦娜·布拉瓦茨基",
         "friendship": {
             "0-5": "2.75",
@@ -1570,7 +1570,7 @@
     {
         "id": 337,
         "name": "不灭之刀",
-        "servantId": "101",
+        "servantID": "101",
         "servant": "罗摩",
         "friendship": {
             "0-5": "2.75",
@@ -1586,7 +1586,7 @@
     {
         "id": 340,
         "name": "能力、已达神域",
-        "servantId": "102",
+        "servantID": "102",
         "servant": "李书文",
         "friendship": {
             "0-5": "2.75",
@@ -1602,7 +1602,7 @@
     {
         "id": 339,
         "name": "文明的灯火",
-        "servantId": "103",
+        "servantID": "103",
         "servant": "托马斯·爱迪生",
         "friendship": {
             "0-5": "3.5",
@@ -1618,7 +1618,7 @@
     {
         "id": 356,
         "name": "这个大地的精灵",
-        "servantId": "104",
+        "servantID": "104",
         "servant": "杰罗尼莫",
         "friendship": {
             "0-5": "2.75",
@@ -1634,7 +1634,7 @@
     {
         "id": 357,
         "name": "请让我瞻仰一下你的枪",
-        "servantId": "105",
+        "servantID": "105",
         "servant": "比利小子",
         "friendship": {
             "0-5": "3.5",
@@ -1650,7 +1650,7 @@
     {
         "id": 350,
         "name": "火刑的地狱",
-        "servantId": "106",
+        "servantID": "106",
         "servant": "贞德[Alter]",
         "friendship": {
             "0-5": "5",
@@ -1666,7 +1666,7 @@
     {
         "id": 359,
         "name": "最后的碎片",
-        "servantId": "107",
+        "servantID": "107",
         "servant": "安哥拉曼纽",
         "friendship": {
             "0-5": "5",
@@ -1682,7 +1682,7 @@
     {
         "id": 351,
         "name": "戈耳迪之结",
-        "servantId": "108",
+        "servantID": "108",
         "servant": "伊斯坎达尔",
         "friendship": {
             "0-5": "2",
@@ -1698,7 +1698,7 @@
     {
         "id": 353,
         "name": "向没有阳光的此处",
-        "servantId": "109",
+        "servantID": "109",
         "servant": "卫宫(Assassin)",
         "friendship": {
             "0-5": "3.5",
@@ -1714,7 +1714,7 @@
     {
         "id": 358,
         "name": "百人藏书",
-        "servantId": "110",
+        "servantID": "110",
         "servant": "百貌哈桑",
         "friendship": {
             "0-5": "4",
@@ -1730,7 +1730,7 @@
     {
         "id": 354,
         "name": "天之衣",
-        "servantId": "111",
+        "servantID": "111",
         "servant": "爱丽丝菲尔(天之衣)",
         "friendship": {
             "0-5": "2.76",
@@ -1746,7 +1746,7 @@
     {
         "id": 367,
         "name": "神便鬼毒酒",
-        "servantId": "112",
+        "servantID": "112",
         "servant": "酒吞童子",
         "friendship": {
             "0-5": "4",
@@ -1762,7 +1762,7 @@
     {
         "id": 352,
         "name": "白龙",
-        "servantId": "113",
+        "servantID": "113",
         "servant": "玄奘三藏",
         "friendship": {
             "0-5": "1.5",
@@ -1778,7 +1778,7 @@
     {
         "id": 368,
         "name": "童子切安纲",
-        "servantId": "114",
+        "servantID": "114",
         "servant": "源赖光",
         "friendship": {
             "0-5": "4",
@@ -1794,7 +1794,7 @@
     {
         "id": 371,
         "name": "黄金小熊号",
-        "servantId": "115",
+        "servantID": "115",
         "servant": "坂田金时",
         "friendship": {
             "0-5": "2",
@@ -1810,7 +1810,7 @@
     {
         "id": 370,
         "name": "骨刀（无铭）",
-        "servantId": "116",
+        "servantID": "116",
         "servant": "茨木童子",
         "friendship": {
             "0-5": "3.5",
@@ -1826,7 +1826,7 @@
     {
         "id": 375,
         "name": "鬼面",
-        "servantId": "117",
+        "servantID": "117",
         "servant": "风魔小太郎",
         "friendship": {
             "0-5": "2.75",
@@ -1842,7 +1842,7 @@
     {
         "id": 369,
         "name": "拉美西姆",
-        "servantId": "118",
+        "servantID": "118",
         "servant": "奥兹曼迪亚斯",
         "friendship": {
             "0-5": "5",
@@ -1858,7 +1858,7 @@
     {
         "id": 377,
         "name": "王之马",
-        "servantId": "119",
+        "servantID": "119",
         "servant": "阿尔托莉雅·潘德拉贡(Lancer)",
         "friendship": {
             "0-5": "2.75",
@@ -1874,7 +1874,7 @@
     {
         "id": 374,
         "name": "未被行使的王权",
-        "servantId": "120",
+        "servantID": "120",
         "servant": "尼托克丽丝",
         "friendship": {
             "0-5": "3.5",
@@ -1890,7 +1890,7 @@
     {
         "id": 380,
         "name": "湖之少女",
-        "servantId": "121",
+        "servantID": "121",
         "servant": "兰斯洛特(Saber)",
         "friendship": {
             "0-5": "4",
@@ -1906,7 +1906,7 @@
     {
         "id": 373,
         "name": "唯一一次谎言",
-        "servantId": "122",
+        "servantID": "122",
         "servant": "特里斯坦",
         "friendship": {
             "0-5": "5",
@@ -1922,7 +1922,7 @@
     {
         "id": 372,
         "name": "格林格雷特",
-        "servantId": "123",
+        "servantID": "123",
         "servant": "高文",
         "friendship": {
             "0-5": "2.75",
@@ -1938,7 +1938,7 @@
     {
         "id": 386,
         "name": "存在的证明",
-        "servantId": "124",
+        "servantID": "124",
         "servant": "静谧的哈桑",
         "friendship": {
             "0-5": "2.75",
@@ -1954,7 +1954,7 @@
     {
         "id": 376,
         "name": "炊之不尽",
-        "servantId": "125",
+        "servantID": "125",
         "servant": "俵藤太",
         "friendship": {
             "0-5": "2",
@@ -1970,7 +1970,7 @@
     {
         "id": 385,
         "name": "失去的右臂",
-        "servantId": "126",
+        "servantID": "126",
         "servant": "贝狄威尔",
         "friendship": {
             "0-5": "2.75",
@@ -1986,7 +1986,7 @@
     {
         "id": 378,
         "name": "万能之智，根底之知",
-        "servantId": "127",
+        "servantID": "127",
         "servant": "莱昂纳多·达·芬奇",
         "friendship": {
             "0-5": "2.75",
@@ -2002,7 +2002,7 @@
     {
         "id": "379",
         "name": "日落·海滩",
-        "servantId": "128",
+        "servantID": "128",
         "servant": "玉藻前",
         "friendship": {
             "0-5": "2.75",
@@ -2018,7 +2018,7 @@
     {
         "id": 391,
         "name": "冠军奖杯",
-        "servantId": "129",
+        "servantID": "129",
         "servant": "阿尔托莉雅·潘德拉贡(Archer)",
         "friendship": {
             "0-5": "2.75",
@@ -2034,7 +2034,7 @@
     {
         "id": 381,
         "name": "夏日的回忆",
-        "servantId": "130",
+        "servantID": "130",
         "servant": "玛丽·安托瓦内特",
         "friendship": {
             "0-5": "1",
@@ -2050,7 +2050,7 @@
     {
         "id": 382,
         "name": "现在正在入浴中！",
-        "servantId": "131",
+        "servantID": "131",
         "servant": "安妮·伯妮 & 玛莉·瑞德",
         "friendship": {
             "0-5": "2",
@@ -2066,7 +2066,7 @@
     {
         "id": 383,
         "name": "Prydwen",
-        "servantId": "132",
+        "servantID": "132",
         "servant": "莫德雷德",
         "friendship": {
             "0-5": "1.5",
@@ -2082,7 +2082,7 @@
     {
         "id": 395,
         "name": "最低限度的兴致",
-        "servantId": "133",
+        "servantID": "133",
         "servant": "斯卡哈",
         "friendship": {
             "0-5": "5",
@@ -2098,7 +2098,7 @@
     {
         "id": 384,
         "name": "沙滩情书（恐怖）",
-        "servantId": "134",
+        "servantID": "134",
         "servant": "清姬",
         "friendship": {
             "0-5": "1.5",
@@ -2114,7 +2114,7 @@
     {
         "id": "394",
         "name": "Holly·Knuckle",
-        "servantId": "135",
+        "servantID": "135",
         "servant": "玛尔达",
         "friendship": {
             "0-5": "2.75",
@@ -2130,7 +2130,7 @@
     {
         "id": 392,
         "name": "梦幻召唤（Install）",
-        "servantId": "136",
+        "servantID": "136",
         "servant": "伊莉雅斯菲尔",
         "friendship": {
             "0-5": "2.5",
@@ -2146,7 +2146,7 @@
     {
         "id": 396,
         "name": "痛觉共有",
-        "servantId": "137",
+        "servantID": "137",
         "servant": "克洛伊·冯·爱因兹贝伦",
         "friendship": {
             "0-5": "2",
@@ -2162,7 +2162,7 @@
     {
         "id": 398,
         "name": "万圣节的邀请函",
-        "servantId": "138",
+        "servantID": "138",
         "servant": "伊丽莎白·巴托里（勇者）",
         "friendship": {
             "0-5": "3.35",
@@ -2178,7 +2178,7 @@
     {
         "id": 393,
         "name": "命运之蛇",
-        "servantId": "139",
+        "servantID": "139",
         "servant": "克利奥帕特拉",
         "friendship": {
             "0-5": "2.75",
@@ -2194,7 +2194,7 @@
     {
         "id": 397,
         "name": "处于地底的信仰",
-        "servantId": "140",
+        "servantID": "140",
         "servant": "弗拉德三世",
         "friendship": {
             "0-5": "5",
@@ -2210,7 +2210,7 @@
     {
         "id": 406,
         "name": "通向大海的门",
-        "servantId": "141",
+        "servantID": "141",
         "servant": "贞德·Alter·Santa·Lily",
         "friendship": {
             "0-5": "1",
@@ -2226,7 +2226,7 @@
     {
         "id": 403,
         "name": "七头的战槌杖",
-        "servantId": "142",
+        "servantID": "142",
         "servant": "伊修塔尔",
         "friendship": {
             "0-5": "2.75",
@@ -2242,7 +2242,7 @@
     {
         "id": 404,
         "name": "芬巴巴之花",
-        "servantId": "143",
+        "servantID": "143",
         "servant": "恩奇都",
         "friendship": {
             "0-5": "2.75",
@@ -2258,7 +2258,7 @@
     {
         "id": 405,
         "name": "太阳之石",
-        "servantId": "144",
+        "servantID": "144",
         "servant": "魁札尔·科亚特尔",
         "friendship": {
             "0-5": "4",
@@ -2274,7 +2274,7 @@
     {
         "id": 407,
         "name": "天命的粘土板",
-        "servantId": "145",
+        "servantID": "145",
         "servant": "吉尔伽美什",
         "friendship": {
             "0-5": "5",
@@ -2290,7 +2290,7 @@
     {
         "id": 409,
         "name": "不可能的明日",
-        "servantId": "146",
+        "servantID": "146",
         "servant": "美杜莎",
         "friendship": {
             "0-5": "1.5",
@@ -2306,7 +2306,7 @@
     {
         "id": 408,
         "name": "克律萨俄耳",
-        "servantId": "147",
+        "servantID": "147",
         "servant": "戈尔贡",
         "friendship": {
             "0-5": "5",
@@ -2322,7 +2322,7 @@
     {
         "id": 410,
         "name": "原初之火",
-        "servantId": "148",
+        "servantID": "148",
         "servant": "豹人",
         "friendship": {
             "0-5": "2.75",
@@ -2338,7 +2338,7 @@
     {
         "id": 411,
         "name": "最遥远之塔",
-        "servantId": "150",
+        "servantID": "150",
         "servant": "梅林",
         "friendship": {
             "0-5": "5",
@@ -2354,7 +2354,7 @@
     {
         "id": 416,
         "name": "空之佛",
-        "servantId": "153",
+        "servantID": "153",
         "servant": "宫本武藏",
         "friendship": {
             "0-5": "2.75",
@@ -2370,7 +2370,7 @@
     {
         "id": 417,
         "name": "幽谷之渊",
-        "servantId": "154",
+        "servantID": "154",
         "servant": "山之翁",
         "friendship": {
             "0-5": "4",
@@ -2386,7 +2386,7 @@
     {
         "id": 429,
         "name": "黑骑士",
-        "servantId": "155",
+        "servantID": "155",
         "servant": "谜之女主角X(Alter)",
         "friendship": {
             "0-5": "2",
@@ -2402,7 +2402,7 @@
     {
         "id": 546,
         "name": "小行星动力学",
-        "servantId": "156",
+        "servantID": "156",
         "servant": "詹姆斯·莫里亚蒂",
         "friendship": {
             "0-5": "2.75",
@@ -2418,7 +2418,7 @@
     {
         "id": "547",
         "name": "干将·莫邪（手枪）",
-        "servantId": "157",
+        "servantID": "157",
         "servant": "卫宫[Alter]",
         "friendship": {
             "0-5": "5",
@@ -2434,7 +2434,7 @@
     {
         "id": 548,
         "name": "遥远的荒野",
-        "servantId": "158",
+        "servantID": "158",
         "servant": "海森·罗伯",
         "friendship": {
             "0-5": "5",
@@ -2450,7 +2450,7 @@
     {
         "id": 549,
         "name": "一百零八魔星",
-        "servantId": "159",
+        "servantID": "159",
         "servant": "燕青",
         "friendship": {
             "0-5": "3.5",
@@ -2466,7 +2466,7 @@
     {
         "id": 559,
         "name": "庭园",
-        "servantId": "160",
+        "servantID": "160",
         "servant": "亚瑟·潘德拉贡[Prototype]",
         "friendship": {
             "0-5": "2.75",
@@ -2482,7 +2482,7 @@
     {
         "id": 567,
         "name": "誓言的羽织",
-        "servantId": "161",
+        "servantID": "161",
         "servant": "土方岁三",
         "friendship": {
             "0-5": "5",
@@ -2498,7 +2498,7 @@
     {
         "id": 568,
         "name": "纳入小豆的布袋",
-        "servantId": "162",
+        "servantID": "162",
         "servant": "茶茶",
         "friendship": {
             "0-5": "2",
@@ -2514,7 +2514,7 @@
     {
         "id": 575,
         "name": "无尽闪耀之物",
-        "servantId": "163",
+        "servantID": "163",
         "servant": "梅尔特莉莉丝",
         "friendship": {
             "0-5": "5",
@@ -2530,7 +2530,7 @@
     {
         "id": 576,
         "name": "不再逃避",
-        "servantId": "164",
+        "servantID": "164",
         "servant": "帕森莉普",
         "friendship": {
             "0-5": "2",
@@ -2546,7 +2546,7 @@
     {
         "id": 577,
         "name": "天魔之春修行",
-        "servantId": "165",
+        "servantID": "165",
         "servant": "铃鹿御前",
         "friendship": {
             "0-5": "2.75",
@@ -2562,7 +2562,7 @@
     {
         "id": 578,
         "name": "路旁之梦",
-        "servantId": "166",
+        "servantID": "166",
         "servant": "BB",
         "friendship": {
             "0-5": "2.75",
@@ -2578,7 +2578,7 @@
     {
         "id": 579,
         "name": "摇篮之梦",
-        "servantId": "167",
+        "servantID": "167",
         "servant": "杀生院祈荒",
         "friendship": {
             "0-5": "5",
@@ -2594,7 +2594,7 @@
     {
         "id": 586,
         "name": "山鲁亚尔王的寝宫",
-        "servantId": "169",
+        "servantID": "169",
         "servant": "山鲁佐德",
         "friendship": {
             "0-5": "3.5",
@@ -2610,7 +2610,7 @@
     {
         "id": 587,
         "name": "洛阳的宫殿",
-        "servantId": "170",
+        "servantID": "170",
         "servant": "武则天",
         "friendship": {
             "0-5": "2",
@@ -2626,7 +2626,7 @@
     {
         "id": 588,
         "name": "战神的军带",
-        "servantId": "171",
+        "servantID": "171",
         "servant": "彭忒西勒亚",
         "friendship": {
             "0-5": "4",
@@ -2642,7 +2642,7 @@
     {
         "id": 589,
         "name": "尼尼亚号",
-        "servantId": "172",
+        "servantID": "172",
         "servant": "克里斯托弗·哥伦布",
         "friendship": {
             "0-5": "2",
@@ -2658,7 +2658,7 @@
     {
         "id": "642",
         "name": "自豪的一把",
-        "servantId": "173",
+        "servantID": "173",
         "servant": "夏洛克·福尔摩斯",
         "friendship": {
             "0-5": "5",
@@ -2674,7 +2674,7 @@
     {
         "id": "641",
         "name": "新天地",
-        "servantId": "174",
+        "servantID": "174",
         "servant": "保罗•班扬",
         "friendship": {
             "0-5": "2.75",
@@ -2689,8 +2689,8 @@
     },
     {
         "id": "647",
-        "name": "unknown",
-        "servantId": "175",
+        "name": "虹之海的黄金剧场",
+        "servantID": "175",
         "servant": "尼禄·克劳狄乌斯(Caster)",
         "friendship": {
             "0-5": "2.75",
@@ -2705,8 +2705,8 @@
     },
     {
         "id": "648",
-        "name": "unknown",
-        "servantId": "176",
+        "name": "万能包带",
+        "servantID": "176",
         "servant": "弗兰肯斯坦(Saber)",
         "friendship": {
             "0-5": "2",
@@ -2721,8 +2721,8 @@
     },
     {
         "id": "649",
-        "name": "unknown",
-        "servantId": "177",
+        "name": "太阳所赠之物",
+        "servantID": "177",
         "servant": "尼托克丽丝(Assassin)",
         "friendship": {
             "0-5": "3.5",
@@ -2737,8 +2737,8 @@
     },
     {
         "id": "650",
-        "name": "unknown",
-        "servantId": "178",
+        "name": "天下布武～2017summer.ver～",
+        "servantID": "178",
         "servant": "织田信长(Berserker)",
         "friendship": {
             "0-5": "2",
@@ -2751,58 +2751,58 @@
         },
         "desc": "只有织田信长(Berserker)装备时，自身在场期间，我方全体的Buster卡性能提升15% & 暴击威力提升15% & 防御力下降10%【副作用】"
     },
-	{
-        "id": "unknown",
-        "name": "unknown",
-        "servantId": "179",
-        "servant": "unknown",
+	    {
+        "id": "656",
+        "name": "选定之拖把",
+        "servantID": "179",
+        "servant": "阿尔托莉雅·潘德拉贡(Alter)",
         "friendship": {
-            "0-5": "unknown",
-            "5-6": "unknown",
-            "6-7": "unknown",
-            "7-8": "unknown",
-            "8-9": "unknown",
-            "9-10": "unknown",
-            "total": "unknown"
+            "0-5": "3.5",
+            "5-6": "15.5",
+            "6-7": "34",
+            "7-8": "31",
+            "8-9": "36",
+            "9-10": "33",
+            "total": "153"
         },
-        "desc": "unknown"
-	},
-	{
-        "id": "unknown",
-        "name": "unknown",
-        "servantId": "180",
-        "servant": "unknown",
+        "desc": "只有阿尔托莉雅·潘德拉贡(Alter)(Rider)装备时，自身在场期间，我方全体攻击力提升20% & 防御力下降15%【副作用】"
+    },
+    {
+        "id": "657",
+        "name": "NYARF！",
+        "servantID": "180",
+        "servant": "海伦娜·布拉瓦茨基",
         "friendship": {
-            "0-5": "unknown",
-            "5-6": "unknown",
-            "6-7": "unknown",
-            "7-8": "unknown",
-            "8-9": "unknown",
-            "9-10": "unknown",
-            "total": "unknown"
+            "0-5": "2",
+            "5-6": "21",
+            "6-7": "23",
+            "7-8": "27",
+            "8-9": "35",
+            "9-10": "40",
+            "total": "148"
         },
-        "desc": "unknown"
-	},
-	{
-        "id": "unknown",
-        "name": "unknown",
-        "servantId": "181",
-        "servant": "unknown",
+        "desc": "只有海伦娜·布拉瓦茨基(Archer)装备时，自身在场期间，我方全体的Quick卡性能提升10% & Arts卡性能提升10%"
+    },
+    {
+        "id": "658",
+        "name": "京极",
+        "servantID": "181",
+        "servant": "源赖光",
         "friendship": {
-            "0-5": "unknown",
-            "5-6": "unknown",
-            "6-7": "unknown",
-            "7-8": "unknown",
-            "8-9": "unknown",
-            "9-10": "unknown",
-            "total": "unknown"
+            "0-5": "2.75",
+            "5-6": "27.25",
+            "6-7": "33",
+            "7-8": "31",
+            "8-9": "29",
+            "9-10": "28.6",
+            "total": "151.6"
         },
-        "desc": "unknown"
-	},
+        "desc": "只有源赖光(Lancer)装备时，自身在场期间，我方全体的Quick卡性能提升10% & Buster卡性能提升10%"
+    },
     {
         "id": "651",
-        "name": "unknown",
-        "servantId": "182",
+        "name": "女神的优胜奖杯",
+        "servantID": "182",
         "servant": "伊修塔尔(Rider)",
         "friendship": {
             "0-5": "2.75",

@@ -25,13 +25,13 @@
 					sty=' class="odd"';
 				}
 				var clink = 'href="http://fgowiki.com/guide/equipdetail/' + info["id"] + '"';
-				var slink = 'href="http://fgowiki.com/guide/petdetail/' + info["servantId"] + '"';
+				var slink = 'href="http://fgowiki.com/guide/petdetail/' + info["servantID"] + '"';
 				var tr = $('<tr' + sty + '></tr>');
 				var tds = '<td><a ' + clink + ' target="_blank">' + info["id"] + '</a></td>';
 				tds += '<td><a ' + clink + ' target="_blank"><img src="http://fgowiki.com/fgo/equip/' + info["id"] + '.jpg" style="width:60px ;height:auto"></a></td>';
 				tds += '<td><a ' + clink + ' target="_blank">' + info["name"] + '</a></td>';
 				tds += '<td><a ' + slink + ' target="_blank">' + info["servant"] + '</a></td>';
-				tds += '<td><a ' + slink + ' target="_blank"><img src="http://file.fgowiki.fgowiki.com/fgo/head/' + (Array(3).join('0') + info["servantId"]).slice(-3) + '.jpg" style="width:60px ;height:auto"></a></td>';
+				tds += '<td><a ' + slink + ' target="_blank"><img src="http://file.fgowiki.fgowiki.com/fgo/head/' + (Array(3).join('0') + info["servantID"]).slice(-3) + '.jpg" style="width:60px ;height:auto"></a></td>';
 				tds += '<td>' + info["friendship"]["0-5"] + '</td>';
 				tds += '<td>' + info["friendship"]["5-6"] + '</td>';
 				tds += '<td>' + info["friendship"]["6-7"] + '</td>';
