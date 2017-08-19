@@ -342,7 +342,11 @@
 			var firstNP=singleCardNP($("#first_card"),1,i);
 			var secondNP=singleCardNP($("#second_card"),2,i);
 			var thirdNP=singleCardNP($("#third_card"),3,i);
-			var exNP=singleCardNP($("#ex_card"),4,i);
+			var exNP=0;
+			//满足EX卡条件
+			if($("#first_card").val()!="-1" && $("#first_card").val()!="-2" && $("#second_card").val()!="-1" && $("#third_card").val()!="-1"){
+				exNP=singleCardNP($("#ex_card"),4,i);
+			}
 			var totalNP=0;
 			var isCertified=true;
 			//配卡不符合的不显示
@@ -377,6 +381,8 @@
 			if(servants[i].busterCards<b||servants[i].artsCards<a||servants[i].quickCards<q){
 				isCertified=false
 			}
+			
+	
 			//蓝chain
 			if($("#first_card").val()=="-2"){a++};
 			if(a>=3){artsChain=20;}
@@ -443,12 +449,6 @@
 		if(card.val()=="-11" && servants[servantSeq].npCard=="Buster"){
 			return 0;
 		}
-		//无法满足EX卡条件
-		if(cardSeq==4){
-			if($("#first_card").val()=="-1"||$("#first_card").val()=="-2"||$("#second_card").val()=="-1"||$("#third_card").val()=="-1"){
-				return 0;
-			}
-		}
 		var np=0;
 		var firstArtsBonus=0;
 		var critBonus=1;
@@ -461,7 +461,7 @@
 		var npUp=(toFloat($("#np_up").val()))/100;
 		var classBonus=toFloat($("#enemy_class").val());
 		var kindBonus=toFloat($("#enemy_kind").val());
-		
+
 		if(cardSeq==1){
 			if($("#first_crit").prop("checked")){
 				critBonus=2;
