@@ -1,22 +1,20 @@
+<!DOCTYPE html>
 <html>
 <head>
 	<meta http-equiv="content-type" content="text/html;charset=utf-8">
 	<title>NP计算器</title>
 	<link rel="stylesheet" href="css/trash.css" type="text/css" />
-</style> 
 </head>
 <body>
 	<table>
 		<tr>
 			<td>从者</td>
-			<td colspan="3">
+			<td colspan="3" style="text-align:center">
 				<select id="servants"></select>
 			</td>
 			<td>查询</td>
 			<td colspan="3">
 				<input type="text" id="search_str">
-				<input type="button" id="search" onclick="searchName()" value="查询">
-				<input type="button" id="reset" onclick="resetList()" value="重置">
 			</td>
 		</tr>
 		
@@ -140,11 +138,12 @@
 			<td>敌方补正</td>
 			<td>
 				<select id="enemy_class">
-					<option value="1">其他 : 1</option>
-					<option value="1.1">Rider : 1.1</option>
-					<option value="1.2">Caster : 1.2</option>
-					<option value="0.9">Assassin : 0.9</option>
-					<option value="0.8">Berserker : 0.8</option>
+					<option value="1">其他:1</option>
+					<option value="1.1">Rider:1.1</option>
+					<option value="1.2">Caster:1.2</option>
+					<option value="0.9">Assassin:0.9</option>
+					<option value="0.8">Berserker:0.8</option>
+					<option value="1.2">MoonCancer:1.2</option>
 				</select>
 			</td>
 			<td>
@@ -170,395 +169,394 @@
 	</table>
 	<p></p>
 	<table id="np_list"></table>
-</body>
-</html>
-
-<script type="text/javascript" src="js/jquery-1.8.2.min.js"></script>
-<script type="text/javascript">
-	var $ = jQuery.noConflict();
-	var servants = new Array();
-	//读取数据
-	$(function(){  
-		$.getJSON("data/servants.json",function(data){  
-			$.each(data,function(infoIndex,info){
-				servants[info["seq"]]=info;
-				var lst='<option value="'+servants[info["seq"]].seq+'">'+'【'+servants[info["seq"]].class+"】 "+servants[info["seq"]].name+'</option>';
-				$("#servants").append(lst);
+	
+	<script type="text/javascript" src="js/jquery-1.8.2.min.js"></script>
+	<script type="text/javascript">
+		var servants = new Array();
+		//读取数据
+		$(function(){  
+			$.getJSON("data/servants.json",function(data){  
+				$.each(data,function(infoIndex,info){
+					servants[info["seq"]]=info;
+					var lst='<option value="'+servants[info["seq"]].seq+'">'+'【'+servants[info["seq"]]["class"]+"】 "+servants[info["seq"]].name+'</option>';
+					$("#servants").append(lst);
+				})
+				$("#servants").val(1); 
+				updateStatus(1);
 			})
+		});
+		//选择下拉框事件
+		$("#servants").change(function(){
+			var seq=$("#servants").val();
+			updateStatus(seq);
+		});
+		//重置下拉框
+		function resetList(){
+			$("#servants").empty();
+			for(var i in servants){
+				var lst='<option value="'+servants[i].seq+'">'+'【'+servants[i]["class"]+"】 "+servants[i].name+'</option>';
+				$("#servants").append(lst);
+			}
 			$("#servants").val(1); 
 			updateStatus(1);
-		})
-	});
-	//选择下拉框事件
-	$("#servants").change(function(){
-		var seq=$("#servants").val();
-		updateStatus(seq);
-	});
-	//重置下拉框
-	function resetList(){
-		$("#servants").empty();
-		for(var i in servants){
-			var lst='<option value="'+servants[i].seq+'">'+'【'+servants[i].class+"】 "+servants[i].name+'</option>';
-			$("#servants").append(lst);
 		}
-		$("#servants").val(1); 
-		updateStatus(1);
-	}
-	//更新表格数据
-	function updateStatus(seq){
-		$("#buster_hits").val(servants[seq].busterHits);
-		$("#arts_hits").val(servants[seq].artsHits);
-		$("#quick_hits").val(servants[seq].quickHits);
-		$("#ex_hits").val(servants[seq].exHits);
-		$("#buster_np").val(servants[seq].busterNP);
-		$("#arts_np").val(servants[seq].artsNP);
-		$("#quick_np").val(servants[seq].quickNP);
-		$("#ex_np").val(servants[seq].exNP);
-		$("#ride").val(servants[seq].quickEff);
-		$("#craft_build").val(servants[seq].artsEff);
-		$("#np_np").val(servants[seq].npNP);
-		$("#np_hits").val(servants[seq].npHits);
-		$("#cards").empty();
-		if(servants[seq].npCard=="Buster"){
-			var card='<img src="resources/Buster.png" style="width:81">';
-			$("#cards").append(card);
+		//更新表格数据
+		function updateStatus(seq){
+			$("#buster_hits").val(servants[seq].busterHits);
+			$("#arts_hits").val(servants[seq].artsHits);
+			$("#quick_hits").val(servants[seq].quickHits);
+			$("#ex_hits").val(servants[seq].exHits);
+			$("#buster_np").val(servants[seq].busterNP);
+			$("#arts_np").val(servants[seq].artsNP);
+			$("#quick_np").val(servants[seq].quickNP);
+			$("#ex_np").val(servants[seq].exNP);
+			$("#ride").val(servants[seq].quickEff);
+			$("#craft_build").val(servants[seq].artsEff);
+			$("#np_np").val(servants[seq].npNP);
+			$("#np_hits").val(servants[seq].npHits);
+			$("#cards").empty();
+			if(servants[seq].npCard=="Buster"){
+				var card='<img src="resources/others/Buster.png" style="width:81px">';
+				$("#cards").append(card);
+			}
+			else if(servants[seq].npCard=="Arts"){
+				var card='<img src="resources/others/Arts.png" style="width:81px">';
+				$("#cards").append(card);
+			}
+			else if(servants[seq].npCard=="Quick"){
+				var card='<img src="resources/others/Quick.png" style="width:81px">';
+				$("#cards").append(card);
+			}
+			for(var i=0;i<servants[seq].busterCards;i++){
+				var card='<img src="resources/others/Buster.png" style="width:50px">';
+				$("#cards").append(card);
+			}
+			for(var i=0;i<servants[seq].artsCards;i++){
+				var card='<img src="resources/others/Arts.png" style="width:50px">';
+				$("#cards").append(card);
+			}
+			for(var i=0;i<servants[seq].quickCards;i++){
+				var card='<img src="resources/others/Quick.png" style="width:50px">';
+				$("#cards").append(card);
+			}
+			$("#link_to_wiki").empty();
+			var links='<p><a href="http://fgowiki.com/guide/petdetail/'+servants[seq].id+'" target="_blank">点此前往wiki</a></p>';
+			$("#link_to_wiki").append(links);
 		}
-		else if(servants[seq].npCard=="Arts"){
-			var card='<img src="resources/Arts.png" style="width:81">';
-			$("#cards").append(card);
-		}
-		else if(servants[seq].npCard=="Quick"){
-			var card='<img src="resources/Quick.png" style="width:81">';
-			$("#cards").append(card);
-		}
-		for(var i=0;i<servants[seq].busterCards;i++){
-			var card='<img src="resources/Buster.png" style="width:50">';
-			$("#cards").append(card);
-		}
-		for(var i=0;i<servants[seq].artsCards;i++){
-			var card='<img src="resources/Arts.png" style="width:50">';
-			$("#cards").append(card);
-		}
-		for(var i=0;i<servants[seq].quickCards;i++){
-			var card='<img src="resources/Quick.png" style="width:50">';
-			$("#cards").append(card);
-		}
-		$("#link_to_wiki").empty();
-		var links='<p><a href="http://fgowiki.com/guide/petdetail/'+servants[seq].id+'" target="_blank">点此前往wiki</a></p>';
-		$("#link_to_wiki").append(links);
-	}
-	//查询功能
-	function searchName(){
-		var str=$("#search_str").val();
-		var flag=true;
-		var sid=1;
-		var lst='';
-		for(var i in servants){
-			if(servants[i].name.match(str)){
-				if(flag){
-					flag=false;
-					sid=i;
+		//查询功能
+		$("#search_str").on('input propertychange', function(){
+			var str=$("#search_str").val();
+			var flag=true;
+			var sid=1;
+			var lst='';
+			for(var i in servants){
+				if(servants[i].nickName.match(str)){
+					if(flag){
+						flag=false;
+						sid=i;
+					}
+					lst+='<option value="'+servants[i].seq+'">'+'【'+servants[i]["class"]+"】 "+servants[i].name+'</option>';
 				}
-				lst+='<option value="'+servants[i].seq+'">'+'【'+servants[i].class+"】 "+servants[i].name+'</option>';
 			}
-		}
-		if(!flag){
-			$("#servants").empty();
-			$("#servants").append(lst);
-			$("#servants").val(sid); 
-			updateStatus(sid);
-		}
-		else{
-			alert('未找到结果！');
-		}
-	}
-	//overkill选择框事件
-	$("#first_ok").click(function(){
-		if ($(this).prop("checked")){
-			$("#second_ok").attr("checked",true);
-			$("#third_ok").attr("checked",true);
-			$("#ex_ok").attr("checked",true);
-		}
-	});
-	$("#second_ok").click(function(){
-		if ($(this).prop("checked")){
-			$("#third_ok").attr("checked",true);
-			$("#ex_ok").attr("checked",true);
-		}
-		else{
-			$("#first_ok").attr("checked",false);
-		}
-	});
-	$("#third_ok").click(function(){
-		if ($(this).prop("checked")){
-			$("#ex_ok").attr("checked",true);
-		}
-		else{
-			$("#first_ok").attr("checked",false);
-			$("#second_ok").attr("checked",false);
-		}
-	});
-	$("#ex_ok").click(function(){
-		if (!($(this).prop("checked"))){
-			$("#first_ok").attr("checked",false);
-			$("#second_ok").attr("checked",false);
-			$("#third_ok").attr("checked",false);
-		}
-	});
-	//转化为浮点数
-	function toFloat(str){
-		var result=0;
-		result=parseFloat(str);
-		if(!result){
-			result=0;
-		}
-		return result;
-	}
-	//计算
-	function calNP(){
-		var firstNP=singleCardNP($("#first_card"),1,$("#servants").val());
-		var secondNP=singleCardNP($("#second_card"),2,$("#servants").val());
-		var thirdNP=singleCardNP($("#third_card"),3,$("#servants").val());
-		var exNP=singleCardNP($("#ex_card"),4,$("#servants").val());
-		var totalNP=firstNP+secondNP+thirdNP+exNP;
-		var result="<p>首卡："+Math.round(firstNP*100)/100+"<br/>"
-		result+="次卡："+Math.round(secondNP*100)/100+"<br/>"
-		result+="尾卡："+Math.round(thirdNP*100)/100+"<br/>"
-		result+="EX："+Math.round(exNP*100)/100+"<br/>"
-		if((toFloat($("#first_card").val())>2.01||$("#first_card").val()=="-2") && toFloat($("#second_card").val())>2.01 && toFloat($("#third_card").val())>2.01){
-			totalNP+=20;
-			result+="蓝chain：20<br/>"
-		}
-		result+="合计："+Math.round(totalNP*100)/100+"</p>"
-		$("#cal_result").empty();
-		$("#cal_result").append(result);
-	}
-	function calNPList(){
-		$("#np_list").empty();
-		var npList=new Array();
-		$("#np_list").append('<tr><td>排名</td><td>ID</td><td>从者</td><td>首卡NP</td><td>次卡NP</td><td>尾卡NP</td><td>EX卡NP</td><td>蓝chain</td><td>合计</td></tr>');
-		for(var i in servants){
-			var artsChain=0;
-			var firstNP=singleCardNP($("#first_card"),1,i);
-			var secondNP=singleCardNP($("#second_card"),2,i);
-			var thirdNP=singleCardNP($("#third_card"),3,i);
-			var exNP=0;
-			//满足EX卡条件
-			if($("#first_card").val()!="-1" && $("#first_card").val()!="-2" && $("#second_card").val()!="-1" && $("#third_card").val()!="-1"){
-				exNP=singleCardNP($("#ex_card"),4,i);
-			}
-			var totalNP=0;
-			var isCertified=true;
-			//配卡不符合的不显示
-			var b=0,q=0,a=0;
-			if($("#first_card").val()=="0"){
-				b++;
-			}
-			else if($("#first_card").val()=="1"){
-				q++;
-			}
-			else if($("#first_card").val()=="3"){
-				a++;
-			}
-			if($("#second_card").val()=="0"){
-				b++;
-			}
-			else if($("#second_card").val()=="1.5"){
-				q++;
-			}
-			else if($("#second_card").val()=="4.5"){
-				a++;
-			}
-			if($("#third_card").val()=="0"){
-				b++;
-			}
-			else if($("#third_card").val()=="2"){
-				q++;
-			}
-			else if($("#third_card").val()=="6"){
-				a++;
-			}
-			if(servants[i].busterCards<b||servants[i].artsCards<a||servants[i].quickCards<q){
-				isCertified=false
-			}
-			
-	
-			//蓝chain
-			if($("#first_card").val()=="-2"){a++};
-			if(a>=3){artsChain=20;}
-			//如果之后有宝具卡，白打，只在列表计算里算这条
-			//同理蓝宝具不计蓝chain，很真实
-			if($("#second_card").val()=="-11"){firstNP=0;}
-			if($("#third_card").val()=="-11"){firstNP=0;secondNP=0;}
-			//保留2位小数
-			var totalNP=Math.round((firstNP+secondNP+thirdNP+exNP+artsChain)*100)/100;
-			firstNP=Math.round(firstNP*100)/100;
-			secondNP=Math.round(secondNP*100)/100;
-			thirdNP=Math.round(thirdNP*100)/100;
-			exNP=Math.round(exNP*100)/100;
-			var row = {
-				id:servants[i].id,
-				name:'【'+servants[i].class+'】'+servants[i].name,
-				firstNP:firstNP,
-				secondNP:secondNP,
-				thirdNP:thirdNP,
-				exNP:exNP,
-				totalNP:totalNP,
-				busterCards:servants[i].busterCards,
-				artsCards:servants[i].artsCards,
-				quickCards:servants[i].quickCards,
-				artsChain:artsChain,
-				isCertified:isCertified
-			};
-			npList.push(row);
-			npList.sort(function(x, y){
-				return y["totalNP"]-x["totalNP"];
-			});
-		}
-		var rankSeq=1;
-		for (var ele of npList){
-			
-			var tds="<td>"+rankSeq+'</td>';
-			tds+="<td>"+ele.id+'</td>';
-			tds+="<td>"+ele.name+'</td>';
-			tds+="<td>"+ele.firstNP+'</td>';
-			tds+="<td>"+ele.secondNP+'</td>';
-			tds+="<td>"+ele.thirdNP+'</td>';
-			tds+="<td>"+ele.exNP+'</td>';
-			tds+="<td>"+ele.artsChain+'</td>';
-			tds+="<td>"+ele.totalNP+'</td>';
-			var trs="";
-			if(!ele.isCertified){
-				//trs=$('<tr class="err"></tr>');
-				continue;
+			if(!flag){
+				$("#servants").empty();
+				$("#servants").append(lst);
+				$("#servants").val(sid); 
+				updateStatus(sid);
 			}
 			else{
-				trs=$('<tr></tr>');
+				resetList();
 			}
-			trs.append(tds);
-			$("#np_list").append(trs);
-			rankSeq++;
+		});
+		//overkill选择框事件
+		$("#first_ok").click(function(){
+			if ($(this).prop("checked")){
+				$("#second_ok").attr("checked",true);
+				$("#third_ok").attr("checked",true);
+				$("#ex_ok").attr("checked",true);
+			}
+		});
+		$("#second_ok").click(function(){
+			if ($(this).prop("checked")){
+				$("#third_ok").attr("checked",true);
+				$("#ex_ok").attr("checked",true);
+			}
+			else{
+				$("#first_ok").attr("checked",false);
+			}
+		});
+		$("#third_ok").click(function(){
+			if ($(this).prop("checked")){
+				$("#ex_ok").attr("checked",true);
+			}
+			else{
+				$("#first_ok").attr("checked",false);
+				$("#second_ok").attr("checked",false);
+			}
+		});
+		$("#ex_ok").click(function(){
+			if (!($(this).prop("checked"))){
+				$("#first_ok").attr("checked",false);
+				$("#second_ok").attr("checked",false);
+				$("#third_ok").attr("checked",false);
+			}
+		});
+		//转化为浮点数
+		function toFloat(str){
+			var result=0;
+			result=parseFloat(str);
+			if(!result){
+				result=0;
+			}
+			return result;
 		}
-	}
-	function singleCardNP(card,cardSeq,servantSeq){
-		//无卡或为染色卡
-		if(card.val()=="-1"||card.val()=="-2"){
-			return 0;
+		//计算
+		function calNP(){
+			var firstNP=singleCardNP($("#first_card"),1,$("#servants").val());
+			var secondNP=singleCardNP($("#second_card"),2,$("#servants").val());
+			var thirdNP=singleCardNP($("#third_card"),3,$("#servants").val());
+			var exNP=singleCardNP($("#ex_card"),4,$("#servants").val());
+			var totalNP=firstNP+secondNP+thirdNP+exNP;
+			var result="<p>首卡："+Math.round(firstNP*100)/100+"<br/>"
+			result+="次卡："+Math.round(secondNP*100)/100+"<br/>"
+			result+="尾卡："+Math.round(thirdNP*100)/100+"<br/>"
+			result+="EX："+Math.round(exNP*100)/100+"<br/>"
+			if((toFloat($("#first_card").val())>2.01||$("#first_card").val()=="-2") && toFloat($("#second_card").val())>2.01 && toFloat($("#third_card").val())>2.01){
+				totalNP+=20;
+				result+="蓝chain：20<br/>"
+			}
+			result+="合计："+Math.round(totalNP*100)/100+"</p>"
+			$("#cal_result").empty();
+			$("#cal_result").append(result);
 		}
-		//红卡宝具
-		if(card.val()=="-11" && servants[servantSeq].npCard=="Buster"){
-			return 0;
+		function calNPList(){
+			$("#np_list").empty();
+			var npList=new Array();
+			$("#np_list").append('<tr><td>排名</td><td>ID</td><td>从者</td><td>首卡NP</td><td>次卡NP</td><td>尾卡NP</td><td>EX卡NP</td><td>蓝chain</td><td>合计</td></tr>');
+			for(var i in servants){
+				var artsChain=0;
+				var firstNP=singleCardNP($("#first_card"),1,i);
+				var secondNP=singleCardNP($("#second_card"),2,i);
+				var thirdNP=singleCardNP($("#third_card"),3,i);
+				var exNP=0;
+				//满足EX卡条件
+				if($("#first_card").val()!="-1" && $("#first_card").val()!="-2" && $("#second_card").val()!="-1" && $("#third_card").val()!="-1"){
+					exNP=singleCardNP($("#ex_card"),4,i);
+				}
+				var totalNP=0;
+				var isCertified=true;
+				//配卡不符合的不显示
+				var b=0,q=0,a=0;
+				if($("#first_card").val()=="0"){
+					b++;
+				}
+				else if($("#first_card").val()=="1"){
+					q++;
+				}
+				else if($("#first_card").val()=="3"){
+					a++;
+				}
+				if($("#second_card").val()=="0"){
+					b++;
+				}
+				else if($("#second_card").val()=="1.5"){
+					q++;
+				}
+				else if($("#second_card").val()=="4.5"){
+					a++;
+				}
+				if($("#third_card").val()=="0"){
+					b++;
+				}
+				else if($("#third_card").val()=="2"){
+					q++;
+				}
+				else if($("#third_card").val()=="6"){
+					a++;
+				}
+				if(servants[i].busterCards<b||servants[i].artsCards<a||servants[i].quickCards<q){
+					isCertified=false
+				}
+				
+		
+				//蓝chain
+				if($("#first_card").val()=="-2"){a++};
+				if(a>=3){artsChain=20;}
+				//如果之后有宝具卡，白打，只在列表计算里算这条
+				//同理蓝宝具不计蓝chain，很真实
+				if($("#second_card").val()=="-11"){firstNP=0;}
+				if($("#third_card").val()=="-11"){firstNP=0;secondNP=0;}
+				//保留2位小数
+				var totalNP=Math.round((firstNP+secondNP+thirdNP+exNP+artsChain)*100)/100;
+				firstNP=Math.round(firstNP*100)/100;
+				secondNP=Math.round(secondNP*100)/100;
+				thirdNP=Math.round(thirdNP*100)/100;
+				exNP=Math.round(exNP*100)/100;
+				var row = {
+					id:servants[i].id,
+					name:'【'+servants[i]["class"]+'】'+servants[i].name,
+					firstNP:firstNP,
+					secondNP:secondNP,
+					thirdNP:thirdNP,
+					exNP:exNP,
+					totalNP:totalNP,
+					busterCards:servants[i].busterCards,
+					artsCards:servants[i].artsCards,
+					quickCards:servants[i].quickCards,
+					artsChain:artsChain,
+					isCertified:isCertified
+				};
+				npList.push(row);
+				npList.sort(function(x, y){
+					return y["totalNP"]-x["totalNP"];
+				});
+			}
+			var rankSeq=1;
+			for (var i in npList){
+				
+				var tds="<td>"+rankSeq+'</td>';
+				tds+="<td>"+npList[i].id+'</td>';
+				tds+="<td>"+npList[i].name+'</td>';
+				tds+="<td>"+npList[i].firstNP+'</td>';
+				tds+="<td>"+npList[i].secondNP+'</td>';
+				tds+="<td>"+npList[i].thirdNP+'</td>';
+				tds+="<td>"+npList[i].exNP+'</td>';
+				tds+="<td>"+npList[i].artsChain+'</td>';
+				tds+="<td>"+npList[i].totalNP+'</td>';
+				var trs="";
+				if(!npList[i].isCertified){
+					//trs=$('<tr class="err"></tr>');
+					continue;
+				}
+				else{
+					trs=$('<tr></tr>');
+				}
+				trs.append(tds);
+				$("#np_list").append(trs);
+				rankSeq++;
+			}
 		}
-		var np=0;
-		var firstArtsBonus=0;
-		var critBonus=1;
-		var okBonus=1;
-		var mag=toFloat(card.val());
-		var npEff=0;
-		var hits=0;
-		var artsUp=(toFloat(servants[servantSeq].artsEff)+toFloat($("#arts_up").val()))/100;
-		var quickUp=(toFloat(servants[servantSeq].quickEff)+toFloat($("#quick_up").val()))/100;
-		var npUp=(toFloat($("#np_up").val()))/100;
-		var classBonus=toFloat($("#enemy_class").val());
-		var kindBonus=toFloat($("#enemy_kind").val());
+		function singleCardNP(card,cardSeq,servantSeq){
+			//无卡或为染色卡
+			if(card.val()=="-1"||card.val()=="-2"){
+				return 0;
+			}
+			//红卡宝具
+			if(card.val()=="-11" && servants[servantSeq].npCard=="Buster"){
+				return 0;
+			}
+			var np=0;
+			var firstArtsBonus=0;
+			var critBonus=1;
+			var okBonus=1;
+			var mag=toFloat(card.val());
+			var npEff=0;
+			var hits=0;
+			var artsUp=(toFloat(servants[servantSeq].artsEff)+toFloat($("#arts_up").val()))/100;
+			var quickUp=(toFloat(servants[servantSeq].quickEff)+toFloat($("#quick_up").val()))/100;
+			var npUp=(toFloat($("#np_up").val()))/100;
+			var classBonus=toFloat($("#enemy_class").val());
+			var kindBonus=toFloat($("#enemy_kind").val());
 
-		if(cardSeq==1){
-			if($("#first_crit").prop("checked")){
-				critBonus=2;
+			if(cardSeq==1){
+				if($("#first_crit").prop("checked")){
+					critBonus=2;
+				}
+				if($("#first_ok").prop("checked")){
+					okBonus=1.5;
+				}
 			}
-			if($("#first_ok").prop("checked")){
-				okBonus=1.5;
+			else if(cardSeq==2){
+				if($("#second_crit").prop("checked")){
+					critBonus=2;
+				}
+				if($("#second_ok").prop("checked")){
+					okBonus=1.5;
+				}
 			}
-		}
-		else if(cardSeq==2){
-			if($("#second_crit").prop("checked")){
-				critBonus=2;
+			else if(cardSeq==3){
+				if($("#third_crit").prop("checked")){
+					critBonus=2;
+				}
+				if($("#third_ok").prop("checked")){
+					okBonus=1.5;
+				}
 			}
-			if($("#second_ok").prop("checked")){
-				okBonus=1.5;
+			else
+			{
+				if($("#ex_ok").prop("checked")){
+					critBonus=1.5;
+				}
 			}
-		}
-		else if(cardSeq==3){
-			if($("#third_crit").prop("checked")){
-				critBonus=2;
+			//首卡染色
+			if($("#first_card").val()=="3"||$("#first_card").val()=="-2"||($("#first_card").val()=="-11"&&servants[servantSeq].npCard=="Arts"))
+			{
+				firstArtsBonus=1;
 			}
-			if($("#third_ok").prop("checked")){
-				okBonus=1.5;
+			//防浮点数误差，多算0.01
+			//宝具
+			if(mag < -10.99){
+				npEff=toFloat(servants[servantSeq].npNP);
+				hits=parseInt(servants[servantSeq].npHits);
+				firstArtsBonus=0;
+				critBonus=1;
+				if(servants[servantSeq].npCard=="Arts"){
+					mag=3
+					np=npEff*(firstArtsBonus+mag*(1+artsUp))*(1+npUp)*critBonus*okBonus*hits*classBonus*kindBonus;
+				}
+				else if(servants[servantSeq].npCard=="Quick"){
+					mag=1
+					np=npEff*(firstArtsBonus+mag*(1+quickUp))*(1+npUp)*critBonus*okBonus*hits*classBonus*kindBonus;
+				}
 			}
-		}
-		else
-		{
-			if($("#ex_ok").prop("checked")){
-				critBonus=1.5;
-			}
-		}
-		//首卡染色
-		if($("#first_card").val()=="3"||$("#first_card").val()=="-2"||($("#first_card").val()=="-11"&&servants[servantSeq].npCard=="Arts"))
-		{
-			firstArtsBonus=1;
-		}
-		//防浮点数误差，多算0.01
-		//宝具
-		if(mag < -10.99){
-			npEff=toFloat(servants[servantSeq].npNP);
-			hits=parseInt(servants[servantSeq].npHits);
-			firstArtsBonus=0;
-			critBonus=1;
-			if(servants[servantSeq].npCard=="Arts"){
-				mag=3
-				np=npEff*(firstArtsBonus+mag*(1+artsUp))*(1+npUp)*critBonus*okBonus*hits*classBonus*kindBonus;
-			}
-			else if(servants[servantSeq].npCard=="Quick"){
-				mag=1
-				np=npEff*(firstArtsBonus+mag*(1+quickUp))*(1+npUp)*critBonus*okBonus*hits*classBonus*kindBonus;
-			}
-		}
-		//红卡
-		else if(mag < 0.01){
-			npEff=toFloat(servants[servantSeq].busterNP);
-			hits=parseInt(servants[servantSeq].busterHits);
-			np=npEff*(firstArtsBonus+mag*(1+0))*(1+npUp)*critBonus*okBonus*hits*classBonus*kindBonus;
-		}
-		else if(mag < 2.01){
-			//Q卡
-			if(cardSeq<=3){
-				npEff=toFloat(servants[servantSeq].quickNP);
-				hits=parseInt(servants[servantSeq].quickHits);
-				np=npEff*(firstArtsBonus+mag*(1+quickUp))*(1+npUp)*critBonus*okBonus*hits*classBonus*kindBonus;
-			}
-			//EX卡
-			else{
-				npEff=toFloat(servants[servantSeq].exNP);
-				hits=parseInt(servants[servantSeq].exHits);
+			//红卡
+			else if(mag < 0.01){
+				npEff=toFloat(servants[servantSeq].busterNP);
+				hits=parseInt(servants[servantSeq].busterHits);
 				np=npEff*(firstArtsBonus+mag*(1+0))*(1+npUp)*critBonus*okBonus*hits*classBonus*kindBonus;
 			}
+			else if(mag < 2.01){
+				//Q卡
+				if(cardSeq<=3){
+					npEff=toFloat(servants[servantSeq].quickNP);
+					hits=parseInt(servants[servantSeq].quickHits);
+					np=npEff*(firstArtsBonus+mag*(1+quickUp))*(1+npUp)*critBonus*okBonus*hits*classBonus*kindBonus;
+				}
+				//EX卡
+				else{
+					npEff=toFloat(servants[servantSeq].exNP);
+					hits=parseInt(servants[servantSeq].exHits);
+					np=npEff*(firstArtsBonus+mag*(1+0))*(1+npUp)*critBonus*okBonus*hits*classBonus*kindBonus;
+				}
+			}
+			//蓝卡
+			else{
+				npEff=toFloat(servants[servantSeq].artsNP);
+				hits=parseInt(servants[servantSeq].artsHits);
+				np=npEff*(firstArtsBonus+mag*(1+artsUp))*(1+npUp)*critBonus*okBonus*hits*classBonus*kindBonus;
+			}
+			return np;
 		}
-		//蓝卡
-		else{
-			npEff=toFloat(servants[servantSeq].artsNP);
-			hits=parseInt(servants[servantSeq].artsHits);
-			np=npEff*(firstArtsBonus+mag*(1+artsUp))*(1+npUp)*critBonus*okBonus*hits*classBonus*kindBonus;
-		}
-		return np;
-	}
-	
-	//基本NP獲得率(Atk) × [首卡加成 + 卡片倍率 x (1 ± 卡片性能Buff)] × (1 + NP獲得量Buff)× Critical補正 × Overkill補正 × 攻擊Hit數 × 伺服器控制參數(假設為1)
+		
+		//基本NP獲得率(Atk) × [首卡加成 + 卡片倍率 x (1 ± 卡片性能Buff)] × (1 + NP獲得量Buff)× Critical補正 × Overkill補正 × 攻擊Hit數 × 伺服器控制參數(假設為1)
 
-	//首卡加成
-	//若第一張卡是Arts卡的話為1，其餘為0，寶具卡不受此加成
+		//首卡加成
+		//若第一張卡是Arts卡的話為1，其餘為0，寶具卡不受此加成
 
-	//Critical補正
-	//有Critical的話為2倍
+		//Critical補正
+		//有Critical的話為2倍
 
-	//Overkill補正
-	//有Overkill的話為1.5倍
+		//Overkill補正
+		//有Overkill的話為1.5倍
 
-	//卡片倍率
-	//Extra卡為1，寶具卡視為各顏色第1張
+		//卡片倍率
+		//Extra卡為1，寶具卡視為各顏色第1張
 
-	//倍率	Arts    Buster      Quick
-	//第1張	3	    0           1
-	//第2張	4.5	    0	        1.5
-	//第3張	6	    0	        2
+		//倍率	Arts    Buster      Quick
+		//第1張	3	    0           1
+		//第2張	4.5	    0	        1.5
+		//第3張	6	    0	        2
 
-</script>
+	</script>
+</body>
+</html>
