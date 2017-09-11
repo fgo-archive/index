@@ -1,5 +1,3 @@
-//国服开放进度
-var process = 275;
 var info = new Array();
 var sortStatus = {
 	id:false,
