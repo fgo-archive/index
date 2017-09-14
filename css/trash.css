@@ -5,14 +5,14 @@ table {
 	border:1px solid #aaa;
 	}
 table th {
-	padding:5px 15px 5px 6px;
+	padding:6px 6px 6px 6px;
 	background-color:#f5e8cb;
 	border:1px solid #aaa;
 	text-align:center;
 	color:#333333;
 	}
 table td {
-	padding:6px 15px 6px 6px;
+	padding:5px 5px 5px 5px;
 	border:1px solid #aaa;
 	text-align:center;
 	}
