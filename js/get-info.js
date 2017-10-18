@@ -134,13 +134,14 @@ function nphit() {
 
 function detail_info() {
 	sortByElmentNo(master.mstSvt);
-	var s = new Set();
 	var lists = [];
 	for (var x in master.mstSvt) {
 		if ((master.mstSvt[x].type == 1 || master.mstSvt[x].type == 2 || master.mstSvt[x].type == 99) && master.mstSvt[x].collectionNo >= 0) {
 			var inf = {
 				"id" : master.mstSvt[x].collectionNo,
-				"name" : servantNamesDict[master.mstSvt[x].collectionNo],
+				"svtId" : master.mstSvt[x].id,
+				"name" : servantNamesDict[master.mstSvt[x].id],
+				"nickName" : servantNamesDict[master.mstSvt[x].id] + (servantnickNamesDict[master.mstSvt[x].id] ? ' ' + servantnickNamesDict[master.mstSvt[x].id] : ''),
 				"class" : classNamesDict[master.mstSvt[x].classId],
 				"rarity" : 0,
 				"gender" : genderTypeDict[master.mstSvt[x].genderType],
@@ -199,8 +200,6 @@ function detail_info() {
 			for (var i in master.mstSvt[x].individuality) {
 				if (individualityDict[master.mstSvt[x].individuality[i]]) {
 					inf["individuality"].push(individualityDict[master.mstSvt[x].individuality[i]]);
-				} else {
-					s.add(master.mstSvt[x].individuality[i]);
 				}
 			}
 
@@ -292,12 +291,11 @@ function detail_info() {
 						for (var k in master.mstCombineLimit[j].itemIds) {
 							var t = [];
 							t.push(master.mstCombineLimit[j].itemIds[k]);
-							if(itemsDict[master.mstCombineLimit[j].itemIds[k]]){
+							if (itemsDict[master.mstCombineLimit[j].itemIds[k]]) {
 								t.push(itemsDict[master.mstCombineLimit[j].itemIds[k]]);
-							}
-							else{
+							} else {
 								t.push(findItemName(master.mstCombineLimit[j].itemIds[k]));
-								console.log(master.mstCombineLimit[j].itemIds[k],findItemName(master.mstCombineLimit[j].itemIds[k]));
+								console.log(master.mstCombineLimit[j].itemIds[k], findItemName(master.mstCombineLimit[j].itemIds[k]));
 							}
 							t.push(master.mstCombineLimit[j].itemNums[k]);
 							tmp.push(t);
@@ -314,12 +312,11 @@ function detail_info() {
 					for (var j in master.mstCombineSkill[i].itemIds) {
 						var t = [];
 						t.push(master.mstCombineSkill[i].itemIds[j]);
-						if(itemsDict[master.mstCombineSkill[i].itemIds[j]]){
+						if (itemsDict[master.mstCombineSkill[i].itemIds[j]]) {
 							t.push(itemsDict[master.mstCombineSkill[i].itemIds[j]]);
-						}
-						else{
+						} else {
 							t.push(findItemName(master.mstCombineSkill[i].itemIds[j]));
-							console.log(master.mstCombineSkill[i].itemIds[j],findItemName(master.mstCombineSkill[i].itemIds[j]));
+							console.log(master.mstCombineSkill[i].itemIds[j], findItemName(master.mstCombineSkill[i].itemIds[j]));
 						}
 						t.push(master.mstCombineSkill[i].itemNums[j]);
 						tmp.push(t);
@@ -330,8 +327,7 @@ function detail_info() {
 					inf["SkillItems"].push(tmp);
 				}
 			}
-			
-			
+
 			//宝具
 			for (var y in master.mstSvtTreasureDevice) {
 				if (master.mstSvtTreasureDevice[y].svtId == master.mstSvt[x].id && 100 != master.mstSvtTreasureDevice[y].treasureDeviceId) {
@@ -382,7 +378,7 @@ function detail_info() {
 							l[1] = l[1].replace(/Critical/g, "暴击");
 							l[1] = l[1].replace(/攻擊|攻撃/g, "攻击");
 							//hits修正
-							if ((l[1]+' ').search(/攻击[^力]/) == -1) {
+							if ((l[1] + ' ').search(/攻击[^力]/) == -1) {
 								npHits = 0;
 							}
 							len = l[1].split(/＆|＋/).length;
@@ -458,7 +454,7 @@ function detail_info() {
 						o.push(t);
 					}
 					var skillInf = {
-						id:master.mstSvtSkill[y].skillId,
+						id : master.mstSvtSkill[y].skillId,
 						num : master.mstSvtSkill[y].num,
 						name : skillName,
 						chargeTurn : skillChargeTurn,
@@ -524,7 +520,7 @@ function detail_info() {
 						o.push(t);
 					}
 					var pSkillInf = {
-						id:master.mstSvt[x].classPassive[y],
+						id : master.mstSvt[x].classPassive[y],
 						name : pSkillName,
 						icoId : pSkillIcoId,
 						desc : o
@@ -562,9 +558,14 @@ function detail_info() {
 		}
 	}
 	//console.log(lists);
-	if (s.size != 221) {
-		console.log('individuality has changed', s.size);
+	var individualityLength = 0;
+	for (var x in individualityDict) {
+		individualityLength++;
 	}
+	if (individualityDict.length != individualityLength) {
+		console.log('individuality has changed');
+	}
+
 	removeItems();
 	document.getElementById("info").innerHTML = (JSON.stringify(lists));
 }
