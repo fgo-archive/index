@@ -15,16 +15,16 @@ var sortStatus = {
 
 $(document).ready(function () {
 	$.getJSON("data/fcraft.json", function (data) {
-		for (var i in data) {
-			var row = {
+		for (let i in data) {
+			let row = {
 				id : ("000" + data[i]["id"]).slice(-3),
 				name : data[i].name,
 				servantID : ("000" + data[i]["servantID"]).slice(-3),
 				servant : data[i].servant,
 				desc : data[i].desc
 			};
-			for (var j in data[i]["friendship"]) {
-				row[j] = data[i]["friendship"][j];
+			for (let j in data[i]["friendship"]) {
+				row[j] = ("000000" + data[i]["friendship"][j] * 1000).slice(-6);
 			}
 			info.push(row);
 		};
@@ -37,19 +37,19 @@ $(document).ready(function () {
 function createTableBody() {
 	$("#main_table").empty();
 	var line = 1;
-	for (var i in info) {
-		var trSty = "";
-		var tdSty = "";
+	for (let i in info) {
+		let trSty = "";
+		let tdSty = "";
 		if ((line % 2) == 1) {
 			trSty = ' class="odd"';
 		}
 		if (parseInt(info[i]["id"]) > process) {
 			tdSty = ' class="unopened"';
 		}
-		var clink = 'href="http://fgowiki.com/guide/equipdetail/' + info[i]["id"] + '"';
-		var slink = 'href="http://fgowiki.com/guide/petdetail/' + info[i]["servantID"] + '"';
-		var tr = $('<tr' + trSty + '></tr>');
-		var tds = '<td' + tdSty + '><a ' + clink + ' target="_blank">' + info[i]["id"] + '</a></td>';
+		let clink = 'href="http://fgowiki.com/guide/equipdetail/' + info[i]["id"] + '"';
+		let slink = 'href="http://fgowiki.com/guide/petdetail/' + info[i]["servantID"] + '"';
+		let tr = $('<tr' + trSty + '></tr>');
+		let tds = '<td' + tdSty + '><a ' + clink + ' target="_blank">' + parseInt(info[i]["id"]) + '</a></td>';
 		if (picFlag) {
 			tds += '<td><a ' + clink + ' target="_blank"><img src="http://fgowiki.com/fgo/equip/' + info[i]["id"] + '.jpg" style="width:60px ;height:auto"></a></td>';
 		}
@@ -60,13 +60,13 @@ function createTableBody() {
 			tds += '<td><a ' + slink + ' target="_blank">' + parseInt(info[i]["servantID"]) + '</a></td>';
 		}
 		tds += '<td><a ' + slink + ' target="_blank">' + info[i]["servant"] + '</a></td>';
-		tds += '<td>' + info[i]["0-5"] + '</td>';
-		tds += '<td>' + info[i]["5-6"] + '</td>';
-		tds += '<td>' + info[i]["6-7"] + '</td>';
-		tds += '<td>' + info[i]["7-8"] + '</td>';
-		tds += '<td>' + info[i]["8-9"] + '</td>';
-		tds += '<td>' + info[i]["9-10"] + '</td>';
-		tds += '<td>' + info[i]["total"] + '</td>';
+		tds += '<td>' + parseInt(info[i]["0-5"]) / 1000 + '</td>';
+		tds += '<td>' + parseInt(info[i]["5-6"]) / 1000 + '</td>';
+		tds += '<td>' + parseInt(info[i]["6-7"]) / 1000 + '</td>';
+		tds += '<td>' + parseInt(info[i]["7-8"]) / 1000 + '</td>';
+		tds += '<td>' + parseInt(info[i]["8-9"]) / 1000 + '</td>';
+		tds += '<td>' + parseInt(info[i]["9-10"]) / 1000 + '</td>';
+		tds += '<td>' + parseInt(info[i]["total"]) / 1000 + '</td>';
 		tds += '<td style="text-align:left">' + info[i]["desc"] + '</td>';
 		tr.append(tds);
 		$("#main_table").append(tr);
@@ -109,14 +109,14 @@ function createTableHead() {
 
 function sortTable(col) {
 	if (sortStatus[col]) {
-		for (var x in sortStatus) {
+		for (let x in sortStatus) {
 			sortStatus[x] = false;
 		}
 		info.sort(function (x, y) {
 			return y[col].localeCompare(x[col]);
 		});
 	} else {
-		for (var x in sortStatus) {
+		for (let x in sortStatus) {
 			sortStatus[x] = false;
 		}
 		sortStatus[col] = true;
