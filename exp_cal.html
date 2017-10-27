@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 	<meta http-equiv="content-type" content="text/html;charset=utf-8">
 	<title>狗粮计算器</title>
 	<link rel="stylesheet" href="css/trash.css" type="text/css" />
 </head>
+
 <body>
 	<div id="title_link">
 	</div>
@@ -38,7 +40,7 @@
 				<td colspan="2"><input type="number" min="0" max="1456500" value="100" id="remained_exp"></td>
 			</tr>
 			<tr>
-				<td colspan="3"><input type="button" value="计算" onclick="cal()" ></td>
+				<td colspan="3"><input type="button" value="计算" onclick="cal()"></td>
 			</tr>
 			<tr>
 				<td colspan="3">结果</td>
@@ -67,110 +69,120 @@
 	<script type="text/javascript" src="js/jquery-1.8.2.min.js"></script>
 	<script type="text/javascript" src="js/title-link.js"></script>
 	<script type="text/javascript">
-		var expList = [0,100,300,600,1000,1500,2100,2800,3600,4500,5500,6600,7800,9100,10500,12000,13600,15300,17100,19000,21000,23100,25300,27600,30000,32500,35100,37800,40600,43500,46500,49600,52800,56100,59500,63000,66600,70300,74100,78000,82000,86100,90300,94600,99000,103500,108100,112800,117600,122500,127500,132600,137800,143100,148500,154000,159600,165300,171100,177000,183000,189100,195300,201600,208000,214500,221100,227800,234600,241500,248500,255600,262800,270100,277500,285000,292600,300300,308100,316000,324000,332100,340300,348600,357000,365500,374100,382800,391600,400500,418500,454900,510100,584500,678500,792500,926900,1082100,1258500,1456500];
-		var limit = [20,30,40,50,60,70,75,80,85,90,92,94,96,98,100];		
-		function cal(){
-			
-			var matchedDogFood = [0,0];
-			var unmatchedDogFood = [0,0];
+		var expList = [0, 100, 300, 600, 1000, 1500, 2100, 2800, 3600, 4500, 5500, 6600, 7800, 9100, 10500, 12000, 13600, 15300, 17100, 19000, 21000, 23100, 25300, 27600, 30000, 32500, 35100, 37800, 40600, 43500, 46500, 49600, 52800, 56100, 59500, 63000,
+			66600, 70300, 74100, 78000, 82000, 86100, 90300, 94600, 99000, 103500, 108100, 112800, 117600, 122500, 127500, 132600, 137800, 143100, 148500, 154000, 159600, 165300, 171100, 177000, 183000, 189100, 195300, 201600, 208000, 214500, 221100, 227800,
+			234600, 241500, 248500, 255600, 262800, 270100, 277500, 285000, 292600, 300300, 308100, 316000, 324000, 332100, 340300, 348600, 357000, 365500, 374100, 382800, 391600, 400500, 418500, 454900, 510100, 584500, 678500, 792500, 926900, 1082100,
+			1258500, 1456500
+		];
+		var limit = [20, 30, 40, 50, 60, 70, 75, 80, 85, 90, 92, 94, 96, 98, 100];
+
+		function cal() {
+
+			var matchedDogFood = [0, 0];
+			var unmatchedDogFood = [0, 0];
 			var exps = 0;
 			var flag = true;
-			
+
 			var currentLvl = parseInt($("#current_lvl").val());
 			var targetLvl = parseInt($("#target_lvl").val());
 			var remainedExp = parseInt($("#remained_exp").val());
-			if(currentLvl > 100){currentLvl = 100;}
-			if(currentLvl < 1){currentLvl = 1;}
-			if(targetLvl > 100){targetLvl = 100;}
-			if(targetLvl < 1){targetLvl = 1;}
-			if(currentLvl == 100){
-				remainedExp = 0;
+			if (currentLvl > 100) {
+				currentLvl = 100;
 			}
-			else if(remainedExp < 0 || remainedExp > expList[currentLvl]){
+			if (currentLvl < 1) {
+				currentLvl = 1;
+			}
+			if (targetLvl > 100) {
+				targetLvl = 100;
+			}
+			if (targetLvl < 1) {
+				targetLvl = 1;
+			}
+			if (currentLvl == 100) {
+				remainedExp = 0;
+			} else if (remainedExp < 0 || remainedExp > expList[currentLvl]) {
 				remainedExp = expList[currentLvl];
 			}
 			$("#current_lvl").val(currentLvl);
 			$("#target_lvl").val(targetLvl);
 			$("#remained_exp").val(remainedExp);
-			
-			for (var i = currentLvl;i < targetLvl;i++){
-				for(var j in limit){
-					if(i == limit[j]){
-						 matchedDogFood = calNum(matchedDogFood,exps,1.2);
-						 unmatchedDogFood = calNum(unmatchedDogFood,exps,1);
-						 exps = 0;
-						 break;
+
+			for (var i = currentLvl; i < targetLvl; i++) {
+				for (var j in limit) {
+					if (i == limit[j]) {
+						matchedDogFood = calNum(matchedDogFood, exps, 1.2);
+						unmatchedDogFood = calNum(unmatchedDogFood, exps, 1);
+						exps = 0;
+						break;
 					}
 				}
-				if(flag){
+				if (flag) {
 					exps += remainedExp;
 					flag = false;
-				}
-				else{
+				} else {
 					exps += expList[i];
 				}
 			}
-			matchedDogFood = calNum(matchedDogFood,exps,1.2);
-			unmatchedDogFood = calNum(unmatchedDogFood,exps,1);
+			matchedDogFood = calNum(matchedDogFood, exps, 1.2);
+			unmatchedDogFood = calNum(unmatchedDogFood, exps, 1);
 			exps = 0;
 			$("#gold_same_class").html(matchedDogFood[0]);
 			$("#gold_diff_class").html(unmatchedDogFood[0]);
 			$("#silver_same_class").html(matchedDogFood[1]);
 			$("#silver_diff_class").html(unmatchedDogFood[1]);
 		}
-		
-		function calNum(dogFood,exps,mag){
-			var tmp = [0,0];
+
+		function calNum(dogFood, exps, mag) {
+			var tmp = [0, 0];
 			tmp[0] = Math.floor(exps / (27000 * mag));
 			exps = exps % (27000 * mag);
 			tmp[1] = Math.ceil(exps / (9000 * mag));
-			
-			if(tmp[1] >= 3){
+
+			if (tmp[1] >= 3) {
 				tmp[1] -= 3;
 				tmp[0] += 1;
 			}
-			
-			for (var i in tmp){
+
+			for (var i in tmp) {
 				dogFood[i] += tmp[i];
 			}
 			return dogFood;
 		}
-		
-		$("#current_lvl").on('input propertychange', function(){
+
+		$("#current_lvl").on('input propertychange', function() {
 			var lvl = parseInt($("#current_lvl").val());
 			var v = 0;
-			if(lvl >= 1 && lvl < 100){
+			if (lvl >= 1 && lvl < 100) {
 				v = expList[lvl];
-				for(var i in limit){
-					if(limit[i] > lvl){
+				for (var i in limit) {
+					if (limit[i] > lvl) {
 						$("#target_lvl").val(limit[i]);
 						break;
 					}
 				}
-			}
-			else{
+			} else {
 				v = 0;
 			}
 			$("#remained_exp").val(v);
 		});
-		
-		$("#star").change(function(){
+
+		$("#star").change(function() {
 			var star = parseInt($("#star").val());
-			switch (star){
+			switch (star) {
 				case 1:
-					limit = [20,30,40,50,60,70,75,80,85,90,92,94,96,98,100];
+					limit = [20, 30, 40, 50, 60, 70, 75, 80, 85, 90, 92, 94, 96, 98, 100];
 					break;
 				case 2:
-					limit = [25,35,45,55,65,70,75,80,85,90,92,94,96,98,100]
+					limit = [25, 35, 45, 55, 65, 70, 75, 80, 85, 90, 92, 94, 96, 98, 100]
 					break;
 				case 3:
-					limit = [30,40,50,60,70,75,80,85,90,92,94,96,98,100];
+					limit = [30, 40, 50, 60, 70, 75, 80, 85, 90, 92, 94, 96, 98, 100];
 					break;
 				case 4:
-					limit = [40,50,60,70,80,85,90,92,94,96,98,100];
+					limit = [40, 50, 60, 70, 80, 85, 90, 92, 94, 96, 98, 100];
 					break;
 				case 5:
-					limit = [50,60,70,80,90,92,94,96,98,100];
+					limit = [50, 60, 70, 80, 90, 92, 94, 96, 98, 100];
 					break;
 				default:
 					break;
@@ -178,4 +190,5 @@
 		});
 	</script>
 </body>
+
 </html>
