@@ -563,8 +563,8 @@ function detail_info() {
     for (var x in individualityDict) {
         individualityLength++;
     }
-    if (individualityDict.length != individualityLength) {
-        console.log('individuality has changed');
+    if (individualityList.length != individualityLength) {
+        console.log('individuality has changed!', individualityList);
     }
 
     removeItems();
