@@ -3,7 +3,7 @@ $(document).ready(function() {
         createItemList();
     } else {
         createItemReqInf();
-        $("#main").after("<p style='text-align:right;'><input type='button' onclick='removeLocalCahce(\"fgoArchive_main_data\",\"fgoArchive_dropChance_data\")' value='清理缓存'></p>");
+        $("#main").after("<p style='text-align:right;'><input type='button' onclick='removeLocalCahce(\"fgoArchive_main_data\",\"fgoArchive_dropChance_data\")' value='清理数据缓存'></p>");
     }
 });
 

@@ -141,14 +141,14 @@ function detail_info() {
             var inf = {
                 "id": master.mstSvt[x].collectionNo,
                 "svtId": master.mstSvt[x].id,
-                "name": servantNamesDict[master.mstSvt[x].id],
-                "nickName": servantNamesDict[master.mstSvt[x].id] + (servantnickNamesDict[master.mstSvt[x].id] ? ' ' + servantnickNamesDict[master.mstSvt[x].id] : ''),
-                "class": classNamesDict[master.mstSvt[x].classId],
+                //"name": servantNamesDict[master.mstSvt[x].id],
+                //"nickName": servantNamesDict[master.mstSvt[x].id] + (servantnickNamesDict[master.mstSvt[x].id] ? ' ' + servantnickNamesDict[master.mstSvt[x].id] : ''),
+                "class": master.mstSvt[x].classId,
                 "rarity": 0,
-                "gender": genderTypeDict[master.mstSvt[x].genderType],
-                "attr": attrDict[master.mstSvt[x].attri],
-                "policy": "",
-                "personality": "",
+                "gender": master.mstSvt[x].genderType,
+                "attr": master.mstSvt[x].attri,
+                "policy": 0,
+                "personality": 0,
                 "individuality": [],
                 "atkBase": 0,
                 "hpBase": 0,
@@ -172,36 +172,73 @@ function detail_info() {
             for (var i in master.mstSvtLimit) {
                 if (master.mstSvtLimit[i].svtId == master.mstSvt[x].id) {
                     pos = i;
-                    inf["criticalWeight"] = master.mstSvtLimit[i].criticalWeight;
-                    inf["policy"] = policyDict[master.mstSvtLimit[i].policy];
-                    inf["personality"] = personalityDict[master.mstSvtLimit[i].personality];
+                    inf.criticalWeight = master.mstSvtLimit[i].criticalWeight;
+                    inf.policy = master.mstSvtLimit[i].policy;
+                    inf.personality = master.mstSvtLimit[i].personality;
                     break;
                 }
             }
             for (var i in master.mstSvtLimit) {
                 if (master.mstSvtLimit[i].svtId == master.mstSvt[x].id && master.mstSvtLimit[i].limitCount == master.mstSvt[x].limitMax) {
                     if (master.mstSvtLimit[pos].hpBase != master.mstSvtLimit[i].hpBase || master.mstSvtLimit[pos].hpMax != master.mstSvtLimit[i].hpMax) {
-                        inf["hpBase"] = master.mstSvtLimit[i].hpBase;
-                        inf["hpMax"] = master.mstSvtLimit[i].hpMax;
+                        inf.hpBase = master.mstSvtLimit[i].hpBase;
+                        inf.hpMax = master.mstSvtLimit[i].hpMax;
                     } else {
-                        inf["hpBase"] = master.mstSvtLimit[pos].hpBase;
-                        inf["hpMax"] = master.mstSvtLimit[pos].hpMax;
+                        inf.hpBase = master.mstSvtLimit[pos].hpBase;
+                        inf.hpMax = master.mstSvtLimit[pos].hpMax;
                     }
                     if (master.mstSvtLimit[pos].atkBase != master.mstSvtLimit[i].atkBase || master.mstSvtLimit[pos].atkMax != master.mstSvtLimit[i].atkMax) {
-                        inf["atkBase"] = master.mstSvtLimit[i].atkBase;
-                        inf["atkMax"] = master.mstSvtLimit[i].atkMax;
+                        inf.atkBase = master.mstSvtLimit[i].atkBase;
+                        inf.atkMax = master.mstSvtLimit[i].atkMax;
                     } else {
-                        inf["atkBase"] = master.mstSvtLimit[pos].atkBase;
-                        inf["atkMax"] = master.mstSvtLimit[pos].atkMax;
+                        inf.atkBase = master.mstSvtLimit[pos].atkBase;
+                        inf.atkMax = master.mstSvtLimit[pos].atkMax;
                     }
-                    inf["rarity"] = master.mstSvtLimit[i].rarity;
+                    inf.rarity = master.mstSvtLimit[i].rarity;
                     break;
                 }
             }
+            //特性
             for (var i in master.mstSvt[x].individuality) {
                 if (individualityDict[master.mstSvt[x].individuality[i]]) {
-                    inf["individuality"].push(individualityDict[master.mstSvt[x].individuality[i]]);
+                    inf.individuality.push(master.mstSvt[x].individuality[i]);
                 }
+            }
+
+            //羁绊
+            if (master.mstSvt[x].collectionNo > 1) {
+                var tid = findSvtFs(master.mstSvt[x].id);
+                var n = [];
+                var m = [];
+                var craftCollectionNo = 0;
+                for (var j in master.mstFriendship) {
+                    if (master.mstFriendship[j].id == tid && master.mstFriendship[j].rank < 10) {
+                        n[master.mstFriendship[j].rank] = master.mstFriendship[j].friendship;
+                    }
+                }
+                for (var j in bondCE) {
+                    if (bondCE[j][1] == master.mstSvt[x].id) {
+                        for (var k in master.mstSvt) {
+                            if (master.mstSvt[k].id == bondCE[j][0]) {
+                                craftCollectionNo = master.mstSvt[k].collectionNo;
+                                break;
+                            }
+                        }
+                        break;
+                    }
+                }
+                m.push(n[4] / 10000);
+                for (var i = 5; i < 10; i++) {
+                    m.push((n[i] - n[i - 1]) / 10000);
+                }
+                m.push(n[9] / 10000);
+                var t = {
+                    id: craftCollectionNo,
+                    name: "",
+                    rank: m,
+                    desc: ""
+                };
+                inf["friendship"] = t;
             }
 
             //配卡
@@ -263,22 +300,22 @@ function detail_info() {
                     }
                 }
             }
-            inf["card"]["Arts"] = {
+            inf.card.Arts = {
                 Quantity: cardQuantity[0],
                 hits: cardHits[0],
                 np: cardNp[0].sort()
             };
-            inf["card"]["Buster"] = {
+            inf.card.Buster = {
                 Quantity: cardQuantity[1],
                 hits: cardHits[1],
                 np: cardNp[1].sort()
             };
-            inf["card"]["Quick"] = {
+            inf.card.Quick = {
                 Quantity: cardQuantity[2],
                 hits: cardHits[2],
                 np: cardNp[2].sort()
             };
-            inf["card"]["EX"] = {
+            inf.card.EX = {
                 hits: cardHits[3],
                 np: cardNp[3].sort()
             };
@@ -292,19 +329,17 @@ function detail_info() {
                         for (var k in master.mstCombineLimit[j].itemIds) {
                             var t = [];
                             t.push(master.mstCombineLimit[j].itemIds[k]);
-                            if (itemsDict[master.mstCombineLimit[j].itemIds[k]]) {
-                                t.push(itemsDict[master.mstCombineLimit[j].itemIds[k]]);
-                            } else {
-                                t.push(findItemName(master.mstCombineLimit[j].itemIds[k]));
+                            if (!itemsDict[master.mstCombineLimit[j].itemIds[k]]) {
+                                console.log("------------item------------");
                                 console.log(master.mstCombineLimit[j].itemIds[k], findItemName(master.mstCombineLimit[j].itemIds[k]));
                             }
                             t.push(master.mstCombineLimit[j].itemNums[k]);
                             tmp.push(t);
                         }
-                        inf["limitQPs"].push(master.mstCombineLimit[j].qp);
+                        inf.limitQPs.push(master.mstCombineLimit[j].qp);
                     }
                 }
-                inf["limitItems"].push(tmp);
+                inf.limitItems.push(tmp);
             }
             //skill
             for (var i in master.mstCombineSkill) {
@@ -313,19 +348,17 @@ function detail_info() {
                     for (var j in master.mstCombineSkill[i].itemIds) {
                         var t = [];
                         t.push(master.mstCombineSkill[i].itemIds[j]);
-                        if (itemsDict[master.mstCombineSkill[i].itemIds[j]]) {
-                            t.push(itemsDict[master.mstCombineSkill[i].itemIds[j]]);
-                        } else {
-                            t.push(findItemName(master.mstCombineSkill[i].itemIds[j]));
+                        if (!itemsDict[master.mstCombineSkill[i].itemIds[j]]) {
+                            console.log("------------item------------");
                             console.log(master.mstCombineSkill[i].itemIds[j], findItemName(master.mstCombineSkill[i].itemIds[j]));
                         }
                         t.push(master.mstCombineSkill[i].itemNums[j]);
                         tmp.push(t);
                     }
-                    inf["SkillQPs"].push(master.mstCombineSkill[i].qp);
+                    inf.SkillQPs.push(master.mstCombineSkill[i].qp);
                 }
                 if (tmp.length != 0) {
-                    inf["SkillItems"].push(tmp);
+                    inf.SkillItems.push(tmp);
                 }
             }
 
@@ -532,27 +565,27 @@ function detail_info() {
             lists.push(inf);
 
             //log
-            if (!inf["name"]) {
+            if (!servantNamesDict[inf.svtId]) {
                 console.log("------------name------------");
                 console.log("collectionNo:", master.mstSvt[x].collectionNo, "servantID:", master.mstSvt[x].id, 'name:', findSvtNameZh2[master.mstSvt[x].id]);
             }
-            if (!inf["class"]) {
+            if (!classNamesDict[inf.class]) {
                 console.log("------------classId------------");
                 console.log("collectionNo:", master.mstSvt[x].collectionNo, "servantID:", master.mstSvt[x].id, 'classId:', master.mstSvt[x].classId);
             }
-            if (!inf["gender"]) {
+            if (!genderTypeDict[inf.gender]) {
                 console.log("------------gender------------");
                 console.log("collectionNo:", master.mstSvt[x].collectionNo, "servantID:", master.mstSvt[x].id, 'gender:', master.mstSvt[x].genderType);
             }
-            if (!inf["attr"]) {
+            if (!attrDict[inf.attr]) {
                 console.log("------------attri------------");
                 console.log("collectionNo:", master.mstSvt[x].collectionNo, "servantID:", master.mstSvt[x].id, 'attri:', master.mstSvt[x].attri);
             }
-            if (!inf["policy"]) {
+            if (!policyDict[inf.policy]) {
                 console.log("------------policy------------");
                 console.log("collectionNo:", master.mstSvt[x].collectionNo, "servantID:", master.mstSvt[x].id, 'policy:', master.mstSvtLimit[pos].policy);
             }
-            if (!inf["personality"]) {
+            if (!personalityDict[inf.personality]) {
                 console.log("------------personality------------");
                 console.log("collectionNo:", master.mstSvt[x].collectionNo, "servantID:", master.mstSvt[x].id, 'attri:', master.mstSvtLimit[pos].personality);
             }

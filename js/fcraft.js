@@ -4,35 +4,38 @@ var sortStatus = {
     name: false,
     servant: false,
     servantID: false,
-    "0-5": false,
-    "5-6": false,
-    "6-7": false,
-    "7-8": false,
-    "8-9": false,
-    "9-10": false,
-    total: false
+    "rank0": false,
+    "rank1": false,
+    "rank2": false,
+    "rank3": false,
+    "rank4": false,
+    "rank5": false,
+    "rank6": false
 };
 
 $(document).ready(function() {
-    $.getJSON("data/fcraft.json", function(data) {
-        for (var i in data) {
+    var data = readJson("data/data.json", "fgoArchive_main_time", "fgoArchive_main_data");
+    $.each(data, function(i, inf) {
+        if (inf.hasOwnProperty("friendship")) {
             var row = {
-                id: numLenFormat(data[i]["id"], 3),
-                name: data[i].name,
-                servantID: numLenFormat(data[i]["servantID"], 3),
-                servant: data[i].servant,
-                desc: data[i].desc
+                id: numLenFormat(inf["friendship"]["id"], 3),
+                name: inf["friendship"]["name"],
+                servantID: numLenFormat(inf["id"], 3),
+                servant: servantNamesDict[inf["svtId"]],
+                desc: inf["friendship"]["desc"]
             };
-            for (var j in data[i]["friendship"]) {
-                row[j] = numLenFormat(data[i]["friendship"][j] * 1000, 6);
+            for (var j in inf["friendship"]["rank"]) {
+                row["rank" + j] = numLenFormat(inf["friendship"]["rank"][j] * 1000, 6);
             }
             info.push(row);
-        };
-        sortStatus["servantID"] = true;
-        createTableHead();
-        createTableBody();
+        }
     });
+    sortStatus["servantID"] = true;
+    createTableHead();
+    createTableBody();
 });
+
+
 
 function createTableBody() {
     $("#main_table").empty();
@@ -60,13 +63,9 @@ function createTableBody() {
             tds += '<td><a ' + slink + ' target="_blank">' + parseInt(info[i]["servantID"]) + '</a></td>';
         }
         tds += '<td><a ' + slink + ' target="_blank">' + info[i]["servant"] + '</a></td>';
-        tds += '<td>' + parseInt(info[i]["0-5"]) / 1000 + '</td>';
-        tds += '<td>' + parseInt(info[i]["5-6"]) / 1000 + '</td>';
-        tds += '<td>' + parseInt(info[i]["6-7"]) / 1000 + '</td>';
-        tds += '<td>' + parseInt(info[i]["7-8"]) / 1000 + '</td>';
-        tds += '<td>' + parseInt(info[i]["8-9"]) / 1000 + '</td>';
-        tds += '<td>' + parseInt(info[i]["9-10"]) / 1000 + '</td>';
-        tds += '<td>' + parseInt(info[i]["total"]) / 1000 + '</td>';
+        for (var j = 0; j <= 6; j++) {
+            tds += '<td>' + parseInt(info[i]["rank" + j]) / 1000 + '</td>';
+        }
         tds += '<td style="text-align:left">' + info[i]["desc"] + '</td>';
         tr.append(tds);
         $("#main_table").append(tr);
@@ -89,17 +88,17 @@ function createTableHead() {
         ths += '<th rowspan="2" class="clickable" style="width:51px" onclick="sortTable(\'servantID\')">从者ID</th>';
     }
     ths += '<th rowspan="2" class="clickable" onclick="sortTable(\'servant\')">隶属从者</th>';
-    ths += '<th colspan="7" class="clickable" onclick="sortTable(\'total\')">羁绊点数(万)</th>';
+    ths += '<th colspan="7" class="clickable" onclick="sortTable(\'rank6\')">羁绊点数(万)</th>';
     ths += '<th rowspan="2" class="clickable" onclick="sortTable(\'desc\')">说明</th>';
     tr1.append(ths);
     thd.append(tr1);
-    ths = '<th class="clickable" onclick="sortTable(\'0-5\')">0-5</th>';
-    ths += '<th class="clickable" onclick="sortTable(\'5-6\')">5-6</th>';
-    ths += '<th class="clickable" onclick="sortTable(\'6-7\')">6-7</th>';
-    ths += '<th class="clickable" onclick="sortTable(\'7-8\')">7-8</th>';
-    ths += '<th class="clickable" onclick="sortTable(\'8-9\')">8-9</th>';
-    ths += '<th class="clickable" onclick="sortTable(\'9-10\')">9-10</th>';
-    ths += '<th class="clickable" onclick="sortTable(\'total\')">总计</th>';
+    ths = '<th class="clickable" onclick="sortTable(\'rank0\')">0-5</th>';
+    ths += '<th class="clickable" onclick="sortTable(\'rank1\')">5-6</th>';
+    ths += '<th class="clickable" onclick="sortTable(\'rank2\')">6-7</th>';
+    ths += '<th class="clickable" onclick="sortTable(\'rank3\')">7-8</th>';
+    ths += '<th class="clickable" onclick="sortTable(\'rank4\')">8-9</th>';
+    ths += '<th class="clickable" onclick="sortTable(\'rank5\')">9-10</th>';
+    ths += '<th class="clickable" onclick="sortTable(\'rank6\')">总计</th>';
     tr2.append(ths);
     thd.append(tr2);
     $("#cft_table").append(thd);
