@@ -44,16 +44,16 @@ function createItemReqInf() {
             $.each(info.limitItems, function(j, items) {
                 $.each(items, function(k, item) {
                     if (item[0] == itemId) {
-                        limitNum += item[2];
-                        singleLmtNum += item[2];
+                        limitNum += item[1];
+                        singleLmtNum += item[1];
                     }
                 });
             });
             $.each(info.SkillItems, function(j, items) {
                 $.each(items, function(k, item) {
                     if (item[0] == itemId) {
-                        skillNum += (item[2] * 3);
-                        singleSklNum += item[2];
+                        skillNum += (item[1] * 3);
+                        singleSklNum += item[1];
                     }
                 });
             });
