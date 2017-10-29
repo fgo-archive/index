@@ -36,15 +36,13 @@ table.no_side_border, table.no_side_border td {
 ul.display li {
     list-style: none;
     margin: 8px;
-    border: 3px solid #ccc;
-    padding: 15px;
-    border-radius: 15px;
+    padding: 9px;
     float: left;
-    cursor: pointer;
 }
 
 ul.display li:hover {
-    border: 3px solid #96c8ff;
+    margin-top: 10px;
+    margin-bottom: 6px;
 }
 
 li img {

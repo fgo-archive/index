@@ -18,7 +18,7 @@ function createItemList() {
     var u = $("<ul></ul>");
     u.attr("class", "display");
     for (var i in itemList) {
-        var liStr = '<li><a href="require.html?' + itemList[i] + '"><img src="resources/items/' + itemList[i] + '.png" /></a></li>';
+        var liStr = '<li><a href="require.html?' + itemList[i] + '"><img src="http://file.fgowiki.fgowiki.com/fgo/material/' + itemsPath[itemList[i]] + '.jpg" /></a></li>';
         u.append(liStr);
     }
     $("#main").append(u);
@@ -128,7 +128,7 @@ function createItemDropInf(itemId) {
     var td = $("<td></td>");
     td.attr("rowspan", data.ApEfficiency.length + 1);
     td.attr("style", "width:140px;");
-    td.append("<img src='resources/items/" + itemId + ".png'</>");
+    td.append("<img src='http://file.fgowiki.fgowiki.com/fgo/material/" + itemsPath[itemId] + ".jpg'</>");
     tr.append(td);
     tr.append("<td>AP效率Top" + data.ApEfficiency.length + "</td><td>平均AP</td><td>样本数</td><td>掉率Top" + data.ApEfficiency.length + "</td><td>掉率</td><td>样本数</td>");
     tb.append(tr);
