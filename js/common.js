@@ -3,29 +3,49 @@ function numLenFormat(num, length) {
     return s.slice(-length);
 }
 
-function readJson(url, timeProperty, dataProperty) {
-    var readData;
-    var currTimeStamp = Date.parse(new Date()) / 1000;
-    if (window.localStorage && window.localStorage.hasOwnProperty(dataProperty) && window.localStorage.hasOwnProperty(timeProperty)) {
-        var lastTimeStamp = window.localStorage.getItem(timeProperty);
-        //1星期内直接读本机缓存
-        if (currTimeStamp - lastTimeStamp < 604800) {
-            return JSON.parse(window.localStorage.getItem(dataProperty));
+function readJson(url, verProperty, dataProperty) {
+    var returnData;
+    if (window.localStorage) {
+        var version;
+        $.ajax({
+            url: "data/version.json",
+            type: "get",
+            async: false,
+            dataType: "json",
+            cache: false,
+            success: function(data) {
+                version = data[verProperty];
+            },
+        });
+        if (window.localStorage.hasOwnProperty(dataProperty) && window.localStorage.hasOwnProperty(verProperty) && version == window.localStorage.getItem(verProperty)) {
+            returnData = JSON.parse(window.localStorage.getItem(dataProperty));
+        } else {
+            $.ajax({
+                url: url,
+                type: "get",
+                async: false,
+                dataType: "json",
+                cache: false,
+                success: function(data) {
+                    window.localStorage.setItem(verProperty, version);
+                    window.localStorage.setItem(dataProperty, JSON.stringify(data));
+                    returnData = data;
+                },
+            });
         }
+    } else {
+        $.ajax({
+            url: url,
+            type: "get",
+            async: false,
+            dataType: "json",
+            cache: true,
+            success: function(data) {
+                returnData = data;
+            },
+        });
     }
-    $.ajax({
-        url: url,
-        type: "get",
-        async: false,
-        dataType: "json",
-        cache: false,
-        success: function(data) {
-            window.localStorage.setItem(timeProperty, currTimeStamp);
-            window.localStorage.setItem(dataProperty, JSON.stringify(data));
-            readData = data;
-        },
-    });
-    return readData;
+    return returnData;
 }
 
 function removeLocalCahce() {

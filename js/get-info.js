@@ -163,8 +163,8 @@ function detail_info() {
                 "noblePhantasm": [],
                 "limitItems": [],
                 "limitQPs": [],
-                "SkillItems": [],
-                "SkillQPs": [],
+                "skillItems": [],
+                "skillQPs": [],
             };
 
             //
@@ -272,6 +272,12 @@ function detail_info() {
             }
             for (var i in transCardNp) {
                 cardNp[i] = Array.from(transCardNp[i]);
+                cardNp[i].sort();
+                if (cardNp[i][0] == 0) {
+                    cardNp[i].reverse();
+                    cardNp[i].pop();
+                    cardNp[i].sort();
+                }
             }
             var cardQuantity = [0, 0, 0];
             var cardHits = [0, 0, 0, 0];
@@ -301,17 +307,17 @@ function detail_info() {
                 }
             }
             inf.card.Arts = {
-                Quantity: cardQuantity[0],
+                quantity: cardQuantity[0],
                 hits: cardHits[0],
                 np: cardNp[0].sort()
             };
             inf.card.Buster = {
-                Quantity: cardQuantity[1],
+                quantity: cardQuantity[1],
                 hits: cardHits[1],
                 np: cardNp[1].sort()
             };
             inf.card.Quick = {
-                Quantity: cardQuantity[2],
+                quantity: cardQuantity[2],
                 hits: cardHits[2],
                 np: cardNp[2].sort()
             };
@@ -355,10 +361,10 @@ function detail_info() {
                         t.push(master.mstCombineSkill[i].itemNums[j]);
                         tmp.push(t);
                     }
-                    inf.SkillQPs.push(master.mstCombineSkill[i].qp);
+                    inf.skillQPs.push(master.mstCombineSkill[i].qp);
                 }
                 if (tmp.length != 0) {
-                    inf.SkillItems.push(tmp);
+                    inf.skillItems.push(tmp);
                 }
             }
 

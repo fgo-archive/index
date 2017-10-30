@@ -3,7 +3,6 @@ $(document).ready(function() {
         createItemList();
     } else {
         createItemReqInf();
-        $("#main").after("<p style='text-align:right;'><input type='button' onclick='removeLocalCahce(\"fgoArchive_main_data\",\"fgoArchive_dropChance_data\")' value='清理数据缓存'></p>");
     }
 });
 
@@ -35,7 +34,7 @@ function createItemReqInf() {
     }
     document.title = itemsDict[itemId];
     createItemDropInf(itemId);
-    var data = readJson("data/data.json", "fgoArchive_main_time", "fgoArchive_main_data");
+    var data = readJson("data/data.json", "fgoArchiveMainDataVer", "fgoArchiveMainData");
     $.each(data, function(i, info) {
         if (info.id > 0) {
             var singleLmtNum = 0;
@@ -49,7 +48,7 @@ function createItemReqInf() {
                     }
                 });
             });
-            $.each(info.SkillItems, function(j, items) {
+            $.each(info.skillItems, function(j, items) {
                 $.each(items, function(k, item) {
                     if (item[0] == itemId) {
                         skillNum += (item[1] * 3);
@@ -120,7 +119,7 @@ function createItemReqList(totalList, limitNum, skillNum) {
 }
 
 function createItemDropInf(itemId) {
-    var data = readJson("data/drop_chance.json", "fgoArchive_dropChance_time", "fgoArchive_dropChance_data")[itemId];
+    var data = readJson("data/drop_chance.json", "fgoArchiveDropDataVer", "fgoArchiveDropData")[itemId];
     var tb = $("<table></table>");
     tb.attr("style", "margin:10px 10px;");
     tb.attr("class", "no_side_border");
@@ -130,10 +129,10 @@ function createItemDropInf(itemId) {
     td.attr("style", "width:140px;");
     td.append("<img src='http://file.fgowiki.fgowiki.com/fgo/material/" + itemsPath[itemId] + ".jpg'</>");
     tr.append(td);
-    tr.append("<td>AP效率Top" + data.ApEfficiency.length + "</td><td>平均AP</td><td>样本数</td><td>掉率Top" + data.ApEfficiency.length + "</td><td>掉率</td><td>样本数</td>");
+    tr.append("<td class='right_border'>AP效率Top" + data.ApEfficiency.length + "</td><td class='right_border'>平均AP</td><td class='right_border'>样本数</td><td class='right_border'>掉率Top" + data.ApEfficiency.length + "</td><td class='right_border'>掉率</td><td>样本数</td>");
     tb.append(tr);
     for (var i in data.ApEfficiency) {
-        tb.append("<tr><td>" + data.ApEfficiency[i][0] + "</td><td>" + data.ApEfficiency[i][3] + "</td><td>" + data.ApEfficiency[i][2] + "</td><td>" + data.dropChance[i][0] + "</td><td>" + data.dropChance[i][3] + "</td><td>" + data.dropChance[i][2] + "</td></tr>");
+        tb.append("<tr><td class='right_border'>" + data.ApEfficiency[i][0] + "</td><td class='right_border'>" + data.ApEfficiency[i][3] + "AP/个</td><td class='right_border'>" + data.ApEfficiency[i][2] + "</td><td class='right_border'>" + data.dropChance[i][0] + "</td><td class='right_border'>" + data.dropChance[i][3] + "%</td><td>" + data.dropChance[i][2] + "</td></tr>");
     }
     $("#main").append(tb);
 }

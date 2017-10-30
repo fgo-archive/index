@@ -33,6 +33,10 @@ table.no_side_border, table.no_side_border td {
     vertical-align: top;
 }
 
+table td.right_border {
+    border-right: 1px solid #aaa;
+}
+
 ul.display li {
     list-style: none;
     margin: 8px;
