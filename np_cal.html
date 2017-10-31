@@ -207,19 +207,17 @@
 					exNP: info["card"]["EX"]["np"][0],
 					npNP: info["noblePhantasm"][0]["np"][0],
 					npEff: 0,
+					quickEff: 0,
+					artsEff: 0,
 				};
 				//遍历被动
 				$.each(info["passiveSkills"], function(i1, inf1) {
 					$.each(inf1["desc"], function(i2, inf2) {
 						if (inf2[0].match("uick.*?提升")) {
-							row["quickEff"] = parseFloat(inf2[1].split("%")[0]);
-						} else {
-							row["quickEff"] = 0;
+							row["quickEff"] += parseFloat(inf2[1].split("%")[0]);
 						}
 						if (inf2[0].match("rts.*?提升")) {
-							row["artsEff"] = parseFloat(inf2[1].split("%")[0]);
-						} else {
-							row["artsEff"] = 0;
+							row["artsEff"] += parseFloat(inf2[1].split("%")[0]);
 						}
 					});
 				});
