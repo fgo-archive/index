@@ -58,6 +58,7 @@ td li {
     list-style: none;
     margin: 6px 6px 6px 6px;
     float: left;
+    text-align: -center;
     cursor: pointer;
 }
 
@@ -76,4 +77,17 @@ div.float_num a, div.float_num {
     color: #fff;
     text-decoration: none;
     text-shadow: #000 1px 0 0, #000 0 1px 0, #000 -1px 0 0, #000 0 -1px 0;
+}
+
+li.require_item, li.require_item img {
+    height: 45px;
+    width: auto;
+    cursor: auto;
+}
+
+table.no_border, table.no_border td {
+    border-top: none;
+    border-bottom: none;
+    border-left: none;
+    border-right: none;
 }

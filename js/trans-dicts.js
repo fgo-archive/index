@@ -1230,6 +1230,20 @@ var itemsPath = {
     "7105": "figure4g",
     "7106": "figure7g",
     "7107": "figure6g",
+    "94000505": "Lollipop",
+    "94000905": "skull",
+    "94001205": "kfc",
+    "94002005": "knife",
+    "94003112": "ball",
+    "94004509": "lighter",
+    "94005606": "shuzhi",
+    "94006404": "xianglian",
+    "94007704": "DragonBall",
+    "94009006": "jier",
+    "94011306": "lanshedai",
+    "94011911": "duandai",
+    "94015007": "guzi",
+    "94017504": "fangkuai",
 };
 
 var noblePhantasmsWhiteList = [700599, 700299];
