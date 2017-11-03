@@ -281,6 +281,7 @@ function detail_info() {
             }
             var cardQuantity = [0, 0, 0];
             var cardHits = [0, 0, 0, 0];
+            var cardDamage=[];
             for (var i in master.mstSvt[x].cardIds) {
                 if (master.mstSvt[x].cardIds[i] == "1") {
                     cardQuantity[0]++;
@@ -294,12 +295,16 @@ function detail_info() {
                 if (master.mstSvtCard[i].svtId == master.mstSvt[x].id) {
                     if (master.mstSvtCard[i].cardId == "1") {
                         cardHits[0] = master.mstSvtCard[i].normalDamage.length;
+                        cardDamage[0]=master.mstSvtCard[i].normalDamage;
                     } else if (master.mstSvtCard[i].cardId == "2") {
                         cardHits[1] = master.mstSvtCard[i].normalDamage.length;
+                        cardDamage[1]=master.mstSvtCard[i].normalDamage;
                     } else if (master.mstSvtCard[i].cardId == "3") {
                         cardHits[2] = master.mstSvtCard[i].normalDamage.length;
+                        cardDamage[2]=master.mstSvtCard[i].normalDamage;
                     } else if (master.mstSvtCard[i].cardId == "4") {
                         cardHits[3] = master.mstSvtCard[i].normalDamage.length;
+                        cardDamage[3]=master.mstSvtCard[i].normalDamage;
                     }
                     if (cardHits[0] != 0 && 　cardHits[1] != 0 && cardHits[2] != 0 && cardHits[3] != 0) {
                         break;
@@ -308,22 +313,26 @@ function detail_info() {
             }
             inf.card.Arts = {
                 quantity: cardQuantity[0],
+                damage:cardDamage[0],
                 hits: cardHits[0],
-                np: cardNp[0].sort()
+                np: cardNp[0]
             };
             inf.card.Buster = {
                 quantity: cardQuantity[1],
+                damage:cardDamage[1],
                 hits: cardHits[1],
-                np: cardNp[1].sort()
+                np: cardNp[1]
             };
             inf.card.Quick = {
                 quantity: cardQuantity[2],
+                damage:cardDamage[2],
                 hits: cardHits[2],
-                np: cardNp[2].sort()
+                np: cardNp[2]
             };
             inf.card.EX = {
                 hits: cardHits[3],
-                np: cardNp[3].sort()
+                damage:cardDamage[3],
+                np: cardNp[3]
             };
 
             //材料
@@ -396,7 +405,10 @@ function detail_info() {
                                 console.log('collectionNo:', master.mstSvt[x].collectionNo, "servantID:", master.mstSvt[x].id, 'treasureDeviceId:', master.mstSvtTreasureDevice[y].treasureDeviceId, 'npName:', npName);
                             }
                             var npHits = master.mstSvtTreasureDevice[y].damage.length;
+                            var npDamage=master.mstSvtTreasureDevice[y].damage;
                             var npColor = master.mstSvtTreasureDevice[y].cardId;
+                            var npRank=master.mstTreasureDevice[z].rank;
+                            var npType=master.mstTreasureDevice[z].typeText.replace(/\uff0f/g, "\uff0f").replace(/\u5bfe/g, "\u5c0d").replace(/\u5b9d/g, "\u5bf6").replace(/\u5263/g, "\u528d").replace(/\u60aa/g, "\u60e1").replace(/\u5965/g, "\u5967").replace(/\u30bb\u30a4\u30d0\u30fc/g, "Saber").replace(/\u7adc/g, "\u9f8d");
                             npColor = cardColorsDict[npColor];
                             if (!npColor) {
                                 console.log("------------npColor------------");
@@ -433,6 +445,9 @@ function detail_info() {
                             var npInf = {
                                 id: master.mstSvtTreasureDevice[y].treasureDeviceId,
                                 name: npName,
+                                rank:npRank,
+                                type:npType,
+                                damage:npDamage,
                                 hits: npHits,
                                 color: npColor,
                                 np: cardNp[4].sort(),
