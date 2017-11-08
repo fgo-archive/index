@@ -69,7 +69,7 @@ function setTableVal(data) {
     $.each(data.limitQPs, function(i, qp) {
         var e_li = $("<li></li>");
         e_li.attr("class", "require_item");
-        e_li.append("<img src='http://www.z4a.net/images/2017/11/01/QP.png'/>");
+        e_li.append("<img src='resources/others/QP.png'/>");
         e_li.append(" × " + numSeparator(qp, 4));
         $("#require").find("tr").eq(i + 1).find("td").eq(1).append(e_li);
     });
@@ -85,7 +85,7 @@ function setTableVal(data) {
     $.each(data.skillQPs, function(i, qp) {
         var e_li = $("<li></li>");
         e_li.attr("class", "require_item");
-        e_li.append("<img src='http://www.z4a.net/images/2017/11/01/QP.png'/>");
+        e_li.append("<img src='resources/others/QP.png'/>");
         e_li.append(" × " + numSeparator(qp, 4));
         $("#require").find("tr").eq(i + 6).find("td").eq(1).append(e_li);
     });

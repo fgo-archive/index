@@ -16,6 +16,11 @@ function readJson(url, verProperty, dataProperty) {
             success: function(data) {
                 version = data[verProperty];
             },
+            error: function(XMLHttpRequest, textStatus, errorThrown) {
+                if (window.localStorage.hasOwnProperty(verProperty)) {
+                    version = window.localStorage.getItem(verProperty);
+                }
+            }
         });
         if (window.localStorage.hasOwnProperty(dataProperty) && window.localStorage.hasOwnProperty(verProperty) && version == window.localStorage.getItem(verProperty)) {
             returnData = JSON.parse(window.localStorage.getItem(dataProperty));
@@ -66,6 +71,12 @@ function getPicUrl(type, id) {
             break;
         case "item":
             url = "http://file.fgowiki.fgowiki.com/fgo/material/" + itemsPath[id] + ".jpg";
+            break;
+        case "skill":
+            url = "http://file.fgowiki.fgowiki.com/mobile/images/Skill/" + skillsPath[id] + ".png";
+            break;
+        case "others":
+            url = "resources/others/" + id + ".png";
             break;
         default:
             url = "resources/others/0.jpg";
