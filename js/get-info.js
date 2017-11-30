@@ -409,7 +409,7 @@ function detail_info() {
                             var npColor = master.mstSvtTreasureDevice[y].cardId;
                             var npRank = master.mstTreasureDevice[z].rank;
                             var npType = master.mstTreasureDevice[z].typeText.replace(/\uff0f/g, "\uff0f").replace(/\u5bfe/g, "\u5c0d").replace(/\u5b9d/g, "\u5bf6").replace(/\u5263/g, "\u528d").replace(/\u60aa/g, "\u60e1").replace(/\u5965/g, "\u5967").replace(/\u30bb\u30a4\u30d0\u30fc/g, "Saber").replace(/\u7adc/g, "\u9f8d");
-                            var npRuby = master.mstTreasureDevice[z].ruby;
+                            var npRuby = master.mstTreasureDevice[z].ruby.replace(/・/g, "·");
                             // if (noblePhantasmsEnDict[master.mstTreasureDevice[z].ruby]) {
                             //     npRuby = noblePhantasmsEnDict[master.mstTreasureDevice[z].ruby];
                             // } else {
@@ -433,7 +433,8 @@ function detail_info() {
 
                             l[1] = l[1].replace(/ ＋ |　＋　/g, "＋");
                             l[1] = l[1].replace(/〔(.*?)〕/g, "($1)");
-                            l[1] = l[1].replace(/的話|┗|\[Lv\.\]/g, "");
+                            l[1] = l[1].replace(/的話|┗|\[Lv\.\]|╔|╠|╚/g, "");
+                            l[1] = l[1].replace(/・/g, "·");
                             l[1] = l[1].replace(/<br>/g, " ");
                             l[1] = l[1].replace(/Critical/g, "暴击");
                             l[1] = l[1].replace(/攻擊|攻撃/g, "攻击");
@@ -480,7 +481,7 @@ function detail_info() {
                         if (master.mstSvtSkill[y].skillId == master.mstSkill[z].id) {
                             skillName = master.mstSkill[z].name;
                             skillIcoId = master.mstSkill[z].iconId;
-                            if(!skillsPath[skillIcoId]){
+                            if (!skillsPath[skillIcoId]) {
                                 console.log('collectionNo:', master.mstSvt[x].collectionNo, "servantID:", master.mstSvt[x].id, 'skillIcoId:', skillIcoId, 'name:', master.mstSkill[z].name);
                             }
                             break;
@@ -511,8 +512,9 @@ function detail_info() {
                     }
                     l[1] = l[1].replace(/ ＋ |　＋　/g, "＋");
                     l[1] = l[1].replace(/〔(.*?)〕/g, "($1)");
-                    l[1] = l[1].replace(/\[Lv\.\]|┗/g, "");
+                    l[1] = l[1].replace(/\[Lv\.\]|┗|╔|╠|╚/g, "");
                     l[1] = l[1].replace(/<br>/g, " ");
+                    l[1] = l[1].replace(/・/g, "·");
                     l[1] = l[1].replace(/Critical/g, "暴击");
                     l[1] = l[1].replace(/<a.*?>(.*?)\(?(.*?)\)?(.*?)<\/a>/g, "$1$2$3");
                     l[2] = l[2].replace(/<a.*?>(.*?)\(?(.*?)\)?(.*?)<\/a>/g, "$1$2$3");
@@ -554,7 +556,7 @@ function detail_info() {
                         if (master.mstSvt[x].classPassive[y] == master.mstSkill[i].id) {
                             pSkillName = master.mstSkill[i].name;
                             pSkillIcoId = master.mstSkill[i].iconId;
-                            if(!skillsPath[pSkillIcoId]){
+                            if (!skillsPath[pSkillIcoId]) {
                                 console.log('collectionNo:', master.mstSvt[x].collectionNo, "servantID:", master.mstSvt[x].id, 'skillIcoId:', pSkillIcoId, 'name:', master.mstSkill[i].name);
                             }
                             break;
