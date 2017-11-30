@@ -33,7 +33,11 @@ function createItemReqInf() {
         return;
     }
     document.title = itemsDict[itemId];
-    createItemDropInf(itemId);
+	try {
+		createItemDropInf(itemId);
+	} catch (e) {
+		console.log(e);
+	}
     var data = readJson("data/data.json", "fgoArchiveMainDataVer", "fgoArchiveMainData");
     $.each(data, function(i, info) {
         if (info.id > 0) {
