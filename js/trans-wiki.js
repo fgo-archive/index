@@ -105,6 +105,7 @@ var skillsPath = {
     "311": "Star_UpUp",
     "312": "lie",
     "313": "OC_UP",
+    "315": "BAUP",
     "316": "BQUP",
     "317": "AQBUP",
     "318": "biao",
