@@ -94,6 +94,7 @@ var skillsPath = {
     "107": "Locked",
     "108": "Circle",
     "109": "Damocles",
+    "110": "Foreigner",
     "300": "Atk_Up",
     "301": "Toqkou_Up",
     "302": "Tpower_Up",
