@@ -81,6 +81,7 @@ var itemsPath = {
     "94011911": "duandai",
     "94015007": "guzi",
     "94017504": "fangkuai",
+    "94018806": "huzi",
 };
 
 var skillsPath = {
@@ -149,4 +150,5 @@ var skillsPath = {
     "611": "HP_Up",
     "700": "Fuck_me",
     "701": "Pikapika",
+    "1004": "mingjie",
 };
