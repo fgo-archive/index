@@ -6,7 +6,7 @@ $(document).ready(function() {
         'np_cal.html': 'NP计算器',
         'exp_cal.html': '狗粮计算器',
         'item.html': '素材查询',
-        'drop_chance.html': '效率剧场'
+        'drop_chance.html': '效率剧场(搬运)'
     };
     var page = window.location.pathname + window.location.search;
     page = page.split('/')[2];
