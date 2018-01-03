@@ -112,6 +112,7 @@ var skillsPath = {
     "317": "AQBUP",
     "318": "biao",
     "323": "shuangdao",
+    "325": "dalang",
     "400": "Def_Up",
     "401": "Inory_Up",
     "402": "Miss",
