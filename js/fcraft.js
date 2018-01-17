@@ -46,9 +46,6 @@ function createTableBody() {
         if ((line % 2) == 1) {
             trSty = ' class="odd"';
         }
-        if (parseInt(info[i]["id"]) > process) {
-            tdSty = ' class="unopened"';
-        }
         var clink = 'href="http://fgowiki.com/guide/equipdetail/' + info[i]["id"] + '"';
         var slink = 'href="http://fgowiki.com/guide/petdetail/' + info[i]["servantID"] + '"';
         var tr = $('<tr' + trSty + '></tr>');
