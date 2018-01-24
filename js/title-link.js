@@ -5,7 +5,8 @@ $(document).ready(function() {
         'fcraft.html?no_pic': '羁绊礼装表(无图版)',
         'np_cal.html': 'NP计算器',
         'exp_cal.html': '狗粮计算器',
-        'item.html': '素材查询',
+		'servant.html': '从者素材查询',
+        'item.html': '素材需求查询',
         'drop_chance.html': '效率剧场(搬运)'
     };
     var page = window.location.pathname + window.location.search;
