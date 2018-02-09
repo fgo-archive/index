@@ -64,16 +64,16 @@ function getPicUrl(type, id) {
     var url = "";
     switch (type) {
         case "servant":
-            url = "http://file.fgowiki.fgowiki.com/fgo/head/" + numLenFormat(id, 3) + ".jpg";
+            url = "http://img.fgowiki.com/fgo/head/" + numLenFormat(id, 3) + ".jpg";
             break;
         case "craft":
-            url = "http://fgowiki.com/fgo/equip/" + numLenFormat(id, 3) + ".jpg";
+            url = "http://cdn.fgowiki.com/fgo/equip/" + numLenFormat(id, 3) + ".jpg";
             break;
         case "item":
-            url = "http://file.fgowiki.fgowiki.com/fgo/material/" + itemsPath[id] + ".jpg";
+            url = "http://img.fgowiki.com/fgo/material/" + itemsPath[id] + ".jpg";
             break;
         case "skill":
-            url = "http://file.fgowiki.fgowiki.com/mobile/images/Skill/" + skillsPath[id] + ".png";
+            url = "http://img.fgowiki.com/mobile/images/Skill/" + skillsPath[id] + ".png";
             break;
         case "others":
             url = "resources/others/" + id + ".png";

@@ -51,11 +51,11 @@ function createTableBody() {
         var tr = $('<tr' + trSty + '></tr>');
         var tds = '<td' + tdSty + '><a ' + clink + ' target="_blank">' + parseInt(info[i]["id"]) + '</a></td>';
         if (picFlag) {
-            tds += '<td><a ' + clink + ' target="_blank"><img src="http://fgowiki.com/fgo/equip/' + info[i]["id"] + '.jpg" style="width:60px ;height:auto"></a></td>';
+            tds += '<td><a ' + clink + ' target="_blank"><img src="' + getPicUrl("craft", info[i]["id"]) + '" style="width:60px ;height:auto"></a></td>';
         }
         tds += '<td><a ' + clink + ' target="_blank">' + info[i]["name"] + '</a></td>';
         if (picFlag) {
-            tds += '<td><a ' + slink + ' target="_blank"><img src="http://file.fgowiki.fgowiki.com/fgo/head/' + info[i]["servantID"] + '.jpg" style="width:60px ;height:auto"></a></td>';
+            tds += '<td><a ' + slink + ' target="_blank"><img src="' + getPicUrl("servant", info[i]["servantID"]) + '" style="width:60px ;height:auto"></a></td>';
         } else {
             tds += '<td><a ' + slink + ' target="_blank">' + parseInt(info[i]["servantID"]) + '</a></td>';
         }
