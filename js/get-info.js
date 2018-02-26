@@ -133,6 +133,45 @@ function nphit() {
     document.getElementById("info").innerHTML = str;
 }
 
+function hitDamageValue(){
+	var tbStr = $("<table></table>");
+    var trStr = $("<tr></tr>");
+    var thStr = $("<td rowspan='2'>id</td><td rowspan='2'>名字</td><td colspan='2'>Buster</td><td colspan='2'>Arts</td><td colspan='2'>Quick</td><td colspan='2'>Extra</td><td colspan='2'>宝具</td>");
+	trStr.append(thStr);
+    tbStr.append(trStr);
+	tbStr.append("<tr><td>hits</td><td>伤害分布</td><td>hits</td><td>伤害分布</td><td>hits</td><td>伤害分布</td><td>hits</td><td>伤害分布</td><td>hits</td><td>伤害分布</td></tr>");
+	var data = readJson("data/data.json", "fgoArchiveMainDataVer", "fgoArchiveMainData");
+	$.each(data, function(i, servant) {
+        if (servant.id > 0) {
+			var trs = $("<tr></tr>");
+            var tds = "<td>" + servant.id + "</td>";
+			tds += "<td>" + "【" + classNamesDict[servant["class"]] + "】 "+ servantNamesDict[servant.svtId] + "</td>";
+			tds += "<td>" + servant.card.Buster.hits + "</td>";
+			tds += "<td>" + servant.card.Buster.damage + "</td>";
+			tds += "<td>" + servant.card.Arts.hits + "</td>";
+			tds += "<td>" + servant.card.Arts.damage + "</td>";
+			tds += "<td>" + servant.card.Quick.hits + "</td>";
+			tds += "<td>" + servant.card.Quick.damage + "</td>";
+			tds += "<td>" + servant.card.EX.hits + "</td>";
+			tds += "<td>" + servant.card.EX.damage + "</td>";
+			if(servant.noblePhantasm[0].hits == 0)
+			{
+				tds += "<td>0</td><td>0</td>";
+			}
+			else{
+				tds += "<td>" + servant.noblePhantasm[0].hits + "</td>";
+				tds += "<td>" + servant.noblePhantasm[0].damage + "</td>";
+			}
+			trs.append(tds);
+			tbStr.append(trs);
+        }
+    });
+	
+	$("#info").empty();
+    $("#info").append(tbStr);
+    removeItems();
+}
+
 function detail_info() {
     sortByElmentNo(master.mstSvt);
     var lists = [];
