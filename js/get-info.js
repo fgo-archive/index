@@ -176,7 +176,17 @@ function detail_info() {
     sortByElmentNo(master.mstSvt);
     var lists = [];
     for (var x in master.mstSvt) {
-        if ((master.mstSvt[x].type == 1 || master.mstSvt[x].type == 2 || master.mstSvt[x].type == 99) && master.mstSvt[x].collectionNo >= 0) {
+		let continueFlag = false;
+		for (var z in servantsWhiteList) {
+			if (servantsWhiteList[z] === master.mstSvt[x].id) {
+				continueFlag = true;
+				break;
+			}
+		}
+		if (continueFlag) {
+			continue;
+		}
+        if ((master.mstSvt[x].type == 1 || master.mstSvt[x].type == 2 || master.mstSvt[x].type == 99) && master.mstSvt[x].collectionNo >= 0) {	
             var inf = {
                 "id": master.mstSvt[x].collectionNo,
                 "svtId": master.mstSvt[x].id,
@@ -205,7 +215,7 @@ function detail_info() {
                 "skillItems": [],
                 "skillQPs": [],
             };
-
+			
             //
             var pos = 0;
             for (var i in master.mstSvtLimit) {
@@ -420,7 +430,7 @@ function detail_info() {
             for (var y in master.mstSvtTreasureDevice) {
                 if (master.mstSvtTreasureDevice[y].svtId == master.mstSvt[x].id && 100 != master.mstSvtTreasureDevice[y].treasureDeviceId) {
                     var npLists = [];
-                    var continueFlag = false;
+                    let continueFlag = false;
                     for (var z in noblePhantasmsWhiteList) {
                         if (noblePhantasmsWhiteList[z] == master.mstSvtTreasureDevice[y].treasureDeviceId) {
                             continueFlag = true;
@@ -580,7 +590,7 @@ function detail_info() {
             //被动
             if (master.mstSvt[x].classPassive.length != 0) {
                 for (var y in master.mstSvt[x].classPassive) {
-                    var continueFlag = false;
+                    let continueFlag = false;
                     for (var z in passiveSkillsWhiteList) {
                         if (passiveSkillsWhiteList[z] == master.mstSvt[x].classPassive[y]) {
                             continueFlag = true;

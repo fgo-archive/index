@@ -1215,5 +1215,6 @@ var itemsDict = {
     "94018806": "圣诞老人的胡子",
     //------------end
 };
+var servantsWhiteList = [9001004];
 var noblePhantasmsWhiteList = [300999, 500898, 700599, 700299, 701199];
 var passiveSkillsWhiteList = [296150, 348550, 940055, 940056];
