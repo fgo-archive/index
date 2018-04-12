@@ -132,7 +132,7 @@ function createItemDropInf(itemId) {
     td.attr("rowspan", data.ApEfficiency.length + 1);
     td.attr("style", "width:140px;");
     td.append("<img src='" + getPicUrl("item", itemId) + "'</>");
-    td.append("<p>数据来自效率剧场<br/>更新日期：<br/>2018-1-3</p>");
+    td.append("<p>数据来自效率剧场<br/>更新日期：<br/>2018-4-10</p>");
     tr.append(td);
     tr.append("<td class='right_border'>AP效率Top" + data.ApEfficiency.length + "</td><td class='right_border'>平均AP</td><td class='right_border'>样本数</td><td class='right_border'>掉率Top" + data.ApEfficiency.length + "</td><td class='right_border'>掉率</td><td>样本数</td>");
     tb.append(tr);
