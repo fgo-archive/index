@@ -397,6 +397,10 @@ function detail_info() {
                                 console.log("------------item------------");
                                 console.log(master.mstCombineLimit[j].itemIds[k], findItemName(master.mstCombineLimit[j].itemIds[k]));
                             }
+							if(!itemsPath[master.mstCombineLimit[j].itemIds[k]]){
+                                console.log("------------item icon------------");
+                                console.log(master.mstCombineLimit[j].itemIds[k], findItemName(master.mstCombineLimit[j].itemIds[k]),itemsDict[master.mstCombineLimit[j].itemIds[k]]);
+                            }
                             t.push(master.mstCombineLimit[j].itemNums[k]);
                             tmp.push(t);
                         }
@@ -415,6 +419,10 @@ function detail_info() {
                         if (!itemsDict[master.mstCombineSkill[i].itemIds[j]]) {
                             console.log("------------item------------");
                             console.log(master.mstCombineSkill[i].itemIds[j], findItemName(master.mstCombineSkill[i].itemIds[j]));
+                        }
+						 if (!itemsPath[master.mstCombineSkill[i].itemIds[j]]) {
+                            console.log("------------item icon------------");
+                            console.log(master.mstCombineSkill[i].itemIds[j], findItemName(master.mstCombineSkill[i].itemIds[j]),itemsDict[master.mstCombineLimit[j].itemIds[k]]);
                         }
                         t.push(master.mstCombineSkill[i].itemNums[j]);
                         tmp.push(t);
@@ -443,7 +451,7 @@ function detail_info() {
                     for (var z in master.mstTreasureDevice) {
                         if (master.mstTreasureDevice[z].id == master.mstSvtTreasureDevice[y].treasureDeviceId) {
 
-                            var npName = master.mstTreasureDevice[z].name;
+                            var npName = master.mstTreasureDevice[z].name.Trim();
                             if (npName == "？？？") {
                                 break;
                             }

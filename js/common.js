@@ -1,8 +1,10 @@
+//数字前0填充
 function numLenFormat(num, length) {
     var s = Array(length).join(0) + num;
     return s.slice(-length);
 }
 
+//读取json文件，缓存到本地
 function readJson(url, verProperty, dataProperty) {
     var returnData;
     if (window.localStorage) {
@@ -53,6 +55,7 @@ function readJson(url, verProperty, dataProperty) {
     return returnData;
 }
 
+//删除本地缓存
 function removeLocalCahce() {
     for (var i in arguments) {
         window.localStorage.removeItem(arguments[i]);
@@ -60,6 +63,7 @@ function removeLocalCahce() {
     window.location.reload();
 }
 
+//转换为wiki的图片地址
 function getPicUrl(type, id) {
     var url = "";
     switch (type) {
@@ -85,6 +89,7 @@ function getPicUrl(type, id) {
     return url;
 }
 
+//数字分割如10000->10,000，len为分割位数
 function numSeparator(num, len) {
     var result = "";
     var l = Math.pow(10, len);
@@ -97,3 +102,9 @@ function numSeparator(num, len) {
     }
     return result;
 }
+
+//字符串去空格
+String.prototype.Trim = function()    
+{    
+	return this.replace(/(^\s*)|(\s*$)/g, "");    
+}    
