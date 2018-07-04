@@ -85,7 +85,7 @@ var itemsPath = {
     "94017504": "fangkuai",
     "94018806": "huzi",
 	"94023305": "yezi",
-	"9999991": "duiqi",
+	"94025004": "duiqi",
 };
 
 var skillsPath = {
