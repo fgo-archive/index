@@ -54,6 +54,8 @@ var itemsPath = {
     "6533": "zhui",
 	"6534": "huoyao",
 	"6535": "bing",
+	"6536": "gang",
+	"6537": "zhilun",
     "6999": "cubes",
     "7001": "figure1s",
     "7002": "figure2s",
