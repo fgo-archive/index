@@ -88,6 +88,7 @@ var itemsPath = {
     "94018806": "huzi",
 	"94023305": "yezi",
 	"94025004": "duiqi",
+	"94027507":"heimao",
 };
 
 var skillsPath = {
