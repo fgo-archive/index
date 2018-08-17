@@ -538,10 +538,6 @@ function detail_info() {
                         if (master.mstSvtSkill[y].skillId == master.mstSkill[z].id) {
                             skillName = master.mstSkill[z].name;
                             skillIcoId = master.mstSkill[z].iconId;
-                            if (!skillsPath[skillIcoId]) {
-                                console.log("------------skill icon------------");
-                                console.log('collectionNo:', master.mstSvt[x].collectionNo, "servantID:", master.mstSvt[x].id, 'skillIcoId:', skillIcoId, 'name:', master.mstSkill[z].name);
-                            }
                             break;
                         }
                     }
@@ -614,10 +610,6 @@ function detail_info() {
                         if (master.mstSvt[x].classPassive[y] == master.mstSkill[i].id) {
                             pSkillName = master.mstSkill[i].name;
                             pSkillIcoId = master.mstSkill[i].iconId;
-                            if (!skillsPath[pSkillIcoId]) {
-                                console.log("------------Passive skill icon------------");
-                                console.log('collectionNo:', master.mstSvt[x].collectionNo, "servantID:", master.mstSvt[x].id, 'skillIcoId:', pSkillIcoId, 'name:', master.mstSkill[i].name);
-                            }
                             break;
                         }
                     }
