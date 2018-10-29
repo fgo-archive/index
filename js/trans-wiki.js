@@ -89,5 +89,5 @@ var itemsPath = {
 	"94023305": "yezi",
 	"94025004": "duiqi",
 	"94027507": "heimao",
-	"94030105": "fazhang",
+	"94030105": "zhizhang",
 };
